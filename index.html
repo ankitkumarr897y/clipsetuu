@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>ClipSetuu — Free AI Video Clip Maker | Long Video to Viral Shorts, Hinglish Captions, 1080p, No Watermark</title>
+<meta name="description" content="ClipSetuu is a free AI video clip maker that turns long videos up to 7 hours into viral Shorts, Reels & TikTok clips with Hinglish captions, no watermark, in 1080p. Static, Vercel-ready build — no server, no install step.">
+<meta name="keywords" content="clipsetuu, ai video clips, youtube shorts, instagram reels, tiktok, hinglish captions, video editor, shorts maker, reels maker, free video tool">
+<link rel="canonical" href="https://clipsetuu.vercel.app/">
+<meta property="og:title" content="ClipSetuu — Turn One Video Into Viral Shorts Automatically">
+<meta property="og:description" content="Free, unlimited AI long-to-short video tool. Up to 7 hours, Hinglish animated captions, AI thumbnails, virality score, watermark-free 1080p export.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo-full.png">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ClipSetuu","applicationCategory":"MultimediaApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free AI long-to-short video clip maker with Hinglish captions and watermark-free 1080p export."}</script>
+<style>
+:root{--bg:#090A0F;--bg2:#0E111A;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.10);--txt:#F4F5F7;--mut:#9AA3B2;--dim:#6B7280;--vio:#7C3AED;--ind:#4F46E5;--cyan:#06B6D4;--gold:#E8B34B;--green:#22C55E;--red:#FF0000;--r:16px}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--txt);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}img{max-width:100%}
+h1,h2,h3{font-family:Sora,Manrope,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.grad{background:linear-gradient(90deg,#8B5CF6,#6366F1,#06B6D4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--txt);border-radius:999px;padding:11px 20px;font-weight:700;cursor:pointer;text-decoration:none;transition:.18s}
+.btn:hover{border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(90deg,#7C3AED,#4F46E5,#0891B2);border-color:transparent;box-shadow:0 10px 30px rgba(124,58,237,.35)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-red{background:#FF0000;border-color:#FF0000;color:#fff}
+.btn-ig{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);border-color:transparent;color:#fff}
+.btn-ghost{background:transparent}
+.btn-sm{padding:8px 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.chip.on{background:rgba(124,58,237,.25);border-color:#8B5CF6}
+.pill{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.pill[aria-pressed="true"]{background:linear-gradient(90deg,#7C3AED,#0891B2);border-color:transparent;color:#fff}
+.card{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:var(--r)}
+label{font-size:13px;font-weight:700;color:var(--mut);letter-spacing:.02em;display:block;margin-bottom:7px}
+input[type=text],input[type=email],input[type=password],input[type=url],input[type=datetime-local],select,textarea{width:100%;background:#0B0E16;border:1px solid var(--line);border-radius:11px;padding:11px 13px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#8B5CF6;box-shadow:0 0 0 3px rgba(139,92,246,.25)}
+textarea{resize:vertical;min-height:110px}
+.muted{color:var(--mut)}.small{font-size:13px}.tiny{font-size:12px}
+.demo-tag{display:inline-block;background:#F59E0B;color:#111827;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 8px;vertical-align:middle}
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(9,10,15,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand img{width:40px;height:40px;object-fit:cover;border-radius:10px;flex:none}
+.brand b{font-family:Sora;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.brand b i{font-style:normal;color:var(--gold)}
+nav.main{display:flex;gap:4px;margin-left:8px}
+.navitem{position:relative}
+.navbtn{background:none;border:0;padding:9px 12px;border-radius:9px;font-weight:600;font-size:14.5px;cursor:pointer;color:var(--txt)}
+.navbtn:hover,.navitem.open .navbtn{background:rgba(255,255,255,.07)}
+.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:min(680px,92vw);background:#10131D;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 30px 60px rgba(0,0,0,.55);display:none;z-index:70}
+.navitem.open .mega{display:block}
+.mega h4{margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.mega-grid button,.mega-grid a{display:flex;gap:8px;align-items:center;background:none;border:0;text-align:left;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--txt);text-decoration:none;width:100%}
+.mega-grid button:hover,.mega-grid a:hover{background:rgba(255,255,255,.06)}
+.mega-grid .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(90deg,#8B5CF6,#06B6D4);flex:none}
+.niches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.niches button{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:10px;padding:10px 8px;cursor:pointer;font-weight:600;font-size:13.5px}
+.hright{margin-left:auto;display:flex;align-items:center;gap:8px}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#06B6D4);display:flex;align-items:center;justify-content:center;font-weight:800;border:0;cursor:pointer;color:#fff}
+.menu-pop{position:absolute;top:60px;right:16px;width:320px;background:#10131D;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.55);display:none;z-index:80}
+.menu-pop.open{display:block}
+.menu-pop .row{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.hamb{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;font-size:18px}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0;background:url("assets/hero-valley.webp") center 32%/cover no-repeat;opacity:.55}
+.hero-fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,10,15,.55) 0%,rgba(9,10,15,.35) 38%,#090A0F 92%),linear-gradient(90deg,rgba(9,10,15,.75),rgba(9,10,15,.15) 55%,rgba(9,10,15,.65))}
+.hero-in{position:relative;padding:54px 0 34px;text-align:center}
+.hero-in h1{font-size:clamp(30px,5.2vw,54px);font-weight:800;letter-spacing:-.02em;max-width:820px;margin:0 auto}
+.hero-in p.lead{color:#D7DBE3;max-width:720px;margin:14px auto 0;font-size:17px}
+.hero-logo{width:min(420px,72vw);margin:6px auto 0;display:block;filter:drop-shadow(0 14px 30px rgba(0,0,0,.5))}
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 0}
+/* console */
+.console{position:relative;margin-top:26px;text-align:left;background:rgba(14,17,26,.82);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:9px 16px;font-weight:700;cursor:pointer}
+.tab[aria-selected="true"]{background:#fff;color:#111827}
+.grid2{display:grid;grid-template-columns:1.35fr .9fr;gap:16px}
+.drop{border:1.5px dashed rgba(255,255,255,.28);border-radius:14px;padding:18px;text-align:center;cursor:pointer;background:rgba(255,255,255,.02)}
+.drop.drag{border-color:#06B6D4;background:rgba(6,182,212,.1)}
+.drop input{display:none}
+.src-preview{display:flex;gap:12px;align-items:center;margin-top:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px}
+.src-preview img{width:96px;height:54px;object-fit:cover;border-radius:8px;background:#000;flex:none}
+.seg{display:flex;gap:7px;flex-wrap:wrap}
+.style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.style-card{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:12px;padding:11px;cursor:pointer;text-align:left;min-height:86px}
+.style-card[aria-pressed="true"]{border-color:#8B5CF6;background:rgba(124,58,237,.18);box-shadow:0 0 0 1px #8B5CF6}
+.style-card b{display:block;font-size:13.5px;margin-bottom:5px}
+.style-card .prev{font-size:14px;font-weight:800;line-height:1.3;min-height:36px}
+/* studio */
+section{padding:44px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.clip-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.studio{display:grid;grid-template-columns:48% 52%;gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg2)}
+.studio>div{padding:20px}
+.studio .left{border-right:1px solid var(--line);background:rgba(255,255,255,.02)}
+.player-wrap{display:flex;justify-content:center}
+.player{position:relative;width:min(320px,100%);aspect-ratio:9/16;background:#000;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);flex:none}
+.player.wide{aspect-ratio:16/9;width:100%}
+.player.square{aspect-ratio:1/1;width:min(360px,100%)}
+.player video,.player .demo-stage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.demo-stage{background:url("assets/hero-valley.webp") center/cover;display:flex;align-items:center;justify-content:center}
+.demo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55))}
+.split-top{position:absolute;left:0;right:0;top:0;height:50%;overflow:hidden;z-index:2}
+.split-top video,.split-top .demo-stage{position:absolute;inset:0}
+.split-bottom{position:absolute;left:0;right:0;bottom:0;height:50%;z-index:2;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px}
+.split-bottom .game{font-family:Sora;font-weight:800;font-size:19px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.split-bottom small{display:block;font-family:Manrope;font-weight:600;color:#E5E7EB}
+.pbadge{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:5}
+.player.hook .pbadge{top:52px}
+.player.split-on .cap.pos-bottom{bottom:55%}
+.player.split-on .cap.pos-center{top:28%}
+.pbadge span{background:rgba(0,0,0,.62);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 9px;font-size:11.5px;font-weight:700}
+.pbadge .fire{background:linear-gradient(90deg,#F59E0B,#EF4444);border-color:transparent}
+.cap{position:absolute;left:8%;right:8%;z-index:6;text-align:center;pointer-events:none;font-weight:800;line-height:1.25;word-break:break-word}
+.cap.pos-top{top:12%}.cap.pos-center{top:44%}.cap.pos-bottom{bottom:9%}
+.cap .w{opacity:.55;transition:.12s}.cap .w.act{opacity:1}
+.cap.s-hormozi{font-family:Sora;text-transform:uppercase;font-size:clamp(19px,5.4vw,27px);text-shadow:0 3px 0 #000,0 0 18px rgba(0,0,0,.6)}
+.cap.s-hormozi .w.act{color:#FACC15;background:#15803D;padding:0 4px;border-radius:4px}
+.cap.s-mrbeast{font-size:clamp(21px,6vw,30px);-webkit-text-stroke:1px #000;text-shadow:3px 3px 0 #000}
+.cap.s-mrbeast .w.act{transform:rotate(-3deg) scale(1.12);display:inline-block;color:#fff}
+.cap.s-iman{font-family:"Noto Sans Devanagari",Manrope;font-weight:600;font-size:clamp(16px,4.6vw,21px);letter-spacing:.01em;text-shadow:0 2px 12px rgba(0,0,0,.85)}
+.cap.s-iman .w.act{color:#fff;border-bottom:2px solid #FACC15}
+.cap.s-neon{font-size:clamp(19px,5.4vw,26px);text-shadow:0 0 14px rgba(6,182,212,.9)}
+.cap.s-neon .w.act{color:#22D3EE;background:rgba(217,70,239,.35);box-shadow:0 0 16px #D946EF;padding:0 5px;border-radius:6px}
+.cap.s-karaoke{font-size:clamp(17px,5vw,23px)}
+.cap.s-karaoke .w{background:rgba(76,29,149,.85);padding:2px 5px;border-radius:6px;margin:1px}
+.cap.s-karaoke .w.act{background:#FACC15;color:#111}
+.cap.s-hook{font-size:clamp(17px,5vw,23px)}
+.hookbar{position:absolute;top:0;left:0;right:0;z-index:6;background:#DC2626;color:#fff;font-weight:800;text-align:center;padding:8px 10px;font-size:13.5px}
+.pcontrols{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;justify-content:center}
+.progress{height:8px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;margin-top:12px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8B5CF6,#06B6D4);transition:width .2s}
+.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.frame{border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;padding:0;background:#000;position:relative;aspect-ratio:9/13}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame[aria-pressed="true"]{border-color:#FACC15;box-shadow:0 0 0 2px #FACC15}
+.frame .best{position:absolute;top:5px;left:5px;background:#FACC15;color:#111;font-size:10px;font-weight:800;border-radius:99px;padding:2px 7px;z-index:2}
+.cover{position:relative;aspect-ratio:9/13;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;margin-top:12px}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover .hook{position:absolute;left:8%;right:8%;top:10%;text-align:center;font-family:Sora;font-weight:800;font-size:21px;line-height:1.2;text-shadow:0 3px 0 #000,0 0 16px rgba(0,0,0,.7);outline:none}
+.cover .hook:focus{background:rgba(0,0,0,.35)}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tags button{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:600;cursor:pointer}
+.tags button:hover{border-color:#EF4444}
+.field{margin-bottom:14px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px}
+.kv b{font-weight:700}
+/* modals */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:26px 14px;overflow:auto}
+.overlay.open{display:flex}
+.modal{width:min(560px,100%);background:#10131D;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:auto;max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain}
+#publishOverlay .field{margin-bottom:10px}
+#publishOverlay .modal h3{margin-bottom:2px}
+#pubDescField{min-height:74px}
+.modal h3{font-size:21px;margin-bottom:6px}
+.x{float:right;background:none;border:1px solid var(--line);border-radius:9px;width:34px;height:34px;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#fff;color:#111827;font-weight:700;border-radius:999px;padding:11px 18px;z-index:200;display:none;box-shadow:0 16px 40px rgba(0,0,0,.5);max-width:92vw;text-align:center;pointer-events:none}
+.saved-item{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;background:rgba(255,255,255,.03)}
+.saved-item img{width:52px;height:68px;object-fit:cover;border-radius:8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{padding:20px}.step .n{width:36px;height:36px;border-radius:50%;background:linear-gradient(90deg,#7C3AED,#06B6D4);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:9px;background:rgba(255,255,255,.02)}
+summary{cursor:pointer;font-weight:700}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
+.foot{display:flex;gap:26px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+.foot img{width:min(300px,70vw)}
+.warn{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.45);border-radius:12px;padding:11px 13px;font-size:13.5px}
+.note{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.4);border-radius:12px;padding:11px 13px;font-size:13.5px}
+.hidden-file{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+@media(max-width:900px){
+  .hbar{flex-wrap:wrap;height:auto;min-height:60px;padding:10px 0;row-gap:8px;gap:8px}
+  .brand{flex:1 1 auto;min-width:0}
+  #logoBtn{display:none}
+  .hright{margin-left:0;gap:6px;flex-wrap:wrap}
+  .hright .btn{padding:8px 12px;font-size:13px}
+  #langSel{max-width:108px;padding:8px 6px!important}
+  .src-preview{flex-wrap:wrap}
+  #srcTitle{white-space:normal;overflow:visible}
+  nav.main{display:none}.hamb{display:block}
+  .grid2,.studio{grid-template-columns:1fr}
+  .studio .left{border-right:0;border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:1fr}
+  .style-grid{grid-template-columns:1fr 1fr}
+  .mega{position:fixed;left:12px;right:12px;top:70px;transform:none;width:auto}
+  .mega-grid{grid-template-columns:1fr}.niches{grid-template-columns:1fr 1fr}
+  .brand b{font-size:18px}
+  .hide-m{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a class="brand" href="#top" aria-label="ClipSetuu home">
+      <img id="brandMark" src="assets/logo-mark.png" alt="ClipSetuu metallic play-button logo mark">
+      <b>clip<i>setuu</i></b>
+    </a>
+    <nav class="main" aria-label="Main">
+      <div class="navitem" data-menu>
+        <button class="navbtn" aria-haspopup="true">Features ▾</button>
+        <div class="mega" role="menu">
+          <h4>30+ tools — pick one to start in the console below</h4>
+          <div class="mega-grid" id="toolsGrid"></div>
+        </div>
+      </div>
+      <div class="navitem" data-menu>
+        <button class="navbtn" aria-haspopup="true">Industries ▾</button>
+        <div class="mega" role="menu">
+          <h4>Built for every niche</h4>
+          <div class="niches" id="nicheGrid"></div>
+        </div>
+      </div>
+      <div class="navitem" data-menu>
+        <button class="navbtn" aria-haspopup="true">Resources ▾</button>
+        <div class="mega" role="menu" style="width:300px">
+          <h4>Resources</h4>
+          <div class="mega-grid" style="grid-template-columns:1fr">
+            <a href="#how">Help Centre</a><a href="#studio">Demo Clips</a><a href="#deploy">API &amp; Deploy Docs</a><a href="#faq">Blog / Changelog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <button class="hamb" id="hambBtn" aria-label="Open menu">☰</button>
+    <div class="hright">
+      <button class="btn btn-sm btn-ghost" id="logoBtn" title="Upload your own brand logo">Upload Brand Logo</button>
+      <input type="file" id="logoFile" class="hidden-file" tabindex="-1" aria-hidden="true" accept=".png,.svg,.webp,image/png,image/svg+xml,image/webp">
+      <select id="langSel" aria-label="Language" style="width:auto;padding:8px 10px">
+        <option value="en">English</option><option value="hinglish">Hinglish</option><option value="hi">हिन्दी</option><option value="es">Español</option>
+      </select>
+      <span id="authArea"><button class="btn btn-sm" id="loginBtn">Continue with Google</button></span>
+    </div>
+  </div>
+  <div class="menu-pop" id="userMenu" role="menu"></div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg" aria-hidden="true"></div><div class="hero-fade" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <img class="hero-logo" id="heroLogo" src="assets/logo-full.png" alt="ClipSetuu — metallic gold and silver play-button logo">
+    <h1 data-i18n="h1">Turn One Video Into <span class="grad">Viral Shorts</span> Automatically</h1>
+    <p class="lead" data-i18n="lead">Paste a link or upload a file up to 7 hours. Get Hinglish animated captions, AI covers, a virality score — and watermark-free 1080p clips. Free and unlimited, in your browser.</p>
+    <div class="badge-row">
+      <span class="chip">✓ Up to 7 hours (420 min)</span>
+      <span class="chip">✓ 1080p · 60fps · No watermark</span>
+      <span class="chip">✓ Hinglish / Hindi / English captions</span>
+      <span class="chip">Static build <span class="demo-tag" style="margin-left:2px">Vercel-ready</span></span>
+    </div>
+
+    <!-- CONSOLE -->
+    <div class="console" id="console">
+      <div class="tabs" role="tablist">
+        <button class="tab" id="tabUrl" aria-selected="true" role="tab">🔗 Paste Video URL</button>
+        <button class="tab" id="tabFile" aria-selected="false" role="tab">⬆ Upload Local File</button>
+        <span class="chip" style="margin-left:auto" id="toolChip">Tool: AI Clip Generator</span>
+      </div>
+
+      <div id="paneUrl">
+        <label for="urlInput">Video URL — YouTube, Twitch, podcast, Google Drive or public MP4</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input type="url" id="urlInput" placeholder="https://www.youtube.com/watch?v=…  or  https://…/video.mp4" style="flex:1;min-width:220px">
+          <button class="btn btn-primary" id="analyseBtn">Analyse Link</button>
+        </div>
+        <p class="small muted" style="margin:8px 0 0">A link alone cannot be clipped in a browser — YouTube/Twitch do not let a web page download the video. The link is used for the title, thumbnail and timing plan; upload the video file to play and export real footage. For your own videos, download from YouTube Studio first, then upload here.</p>
+      </div>
+
+      <div id="paneFile" hidden>
+        <div class="drop" id="dropZone" tabindex="0" role="button" aria-label="Upload video file">
+          <input type="file" id="fileInput" accept=".mp4,.mov,.mkv,.webm,video/mp4,video/quicktime,video/x-matroska,video/webm">
+          <p style="margin:0;font-weight:800;font-size:17px">Drag &amp; drop your video here, or click to browse</p>
+          <p class="small muted" style="margin:6px 0 0">.mp4 · .mov · .mkv · .webm — up to 7 hours. The file never leaves your browser.</p>
+        </div>
+      </div>
+
+      <div class="src-preview" id="srcPreview" hidden>
+        <img id="srcThumb" src="assets/hero-valley.webp" alt="Source video thumbnail">
+        <div style="min-width:0;flex:1">
+          <b id="srcTitle" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">No source yet</b>
+          <span class="small muted" id="srcMeta">Paste a link or upload a file to begin.</span>
+        </div>
+        <span class="chip" id="durBadge">Duration: —</span>
+      </div>
+      <div style="margin-top:12px">
+        <label for="srcTitleEdit">Source title (used to generate clip titles &amp; social copy)</label>
+        <input type="text" id="srcTitleEdit" value="My long video — the full story" maxlength="120">
+      </div>
+
+      <div class="grid2" style="margin-top:18px">
+        <div>
+          <label>Clip length</label>
+          <div class="seg" id="lenSeg" role="group" aria-label="Clip length">
+            <button class="pill" data-len="auto" aria-pressed="true">Auto (Best Fit)</button>
+            <button class="pill" data-len="30" aria-pressed="false">&lt; 30 sec</button>
+            <button class="pill" data-len="60" aria-pressed="false">30s – 60s</button>
+            <button class="pill" data-len="90" aria-pressed="false">60s – 90s</button>
+            <button class="pill" data-len="180" aria-pressed="false">90s – 3 min</button>
+          </div>
+          <label style="margin-top:16px">Number of clips</label>
+          <div class="seg" id="countSeg" role="group" aria-label="Number of clips">
+            <button class="pill" data-count="auto" aria-pressed="true">Auto (All Viral Moments)</button>
+            <button class="pill" data-count="5" aria-pressed="false">5 Clips</button>
+            <button class="pill" data-count="10" aria-pressed="false">10 Clips</button>
+            <button class="pill" data-count="25" aria-pressed="false">25 Clips</button>
+            <button class="pill" data-count="50" aria-pressed="false">50 Clips</button>
+          </div>
+          <label style="margin-top:16px">Split-screen gameplay / brainrot mode</label>
+          <div class="seg" id="splitSeg" role="group" aria-label="Split screen mode">
+            <button class="pill" data-split="none" aria-pressed="true">None — Full Screen 9:16</button>
+            <button class="pill" data-split="Subway Surfers HD" aria-pressed="false">Subway Surfers HD</button>
+            <button class="pill" data-split="Minecraft Parkour" aria-pressed="false">Minecraft Parkour</button>
+            <button class="pill" data-split="GTA V Mega Ramp" aria-pressed="false">GTA V Mega Ramp</button>
+            <button class="pill" data-split="ASMR Soap Cutting" aria-pressed="false">Hydraulic Press / ASMR</button>
+          </div>
+        </div>
+        <div>
+          <label>Caption language</label>
+          <div class="seg" id="capLangSeg">
+            <button class="pill" data-clang="hinglish" aria-pressed="true">Hinglish</button>
+            <button class="pill" data-clang="hindi" aria-pressed="false">Hindi (Devanagari)</button>
+            <button class="pill" data-clang="english" aria-pressed="false">English</button>
+          </div>
+          <label style="margin-top:16px">Animated caption style — live preview below</label>
+          <div class="style-grid" id="styleGrid"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:22px">
+        <button class="btn btn-primary" id="generateBtn" style="font-size:16px;padding:14px 26px">Generate Unlimited Full HD Clips ✨</button>
+        <span class="small muted" id="genNote">Works with a link plan or an uploaded file. No account needed to try.</span>
+      </div>
+      <p class="tiny muted" style="margin:10px 0 0">Demo note: moment detection, transcription and virality scoring run client-side from the title and timings you provide — this static build has no AI server. Uploaded footage is clipped in your browser only.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STUDIO -->
+<section id="studio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>ClipSetuu Studio <span class="demo-tag">Client-side demo</span></h2>
+        <p class="muted" style="margin:6px 0 0">Video on the left, social copy on the right — video ke bagal mein. Pick a clip, switch a caption style, edit its cover.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="chip">Export framing:</span>
+        <div class="seg" id="frameSeg">
+          <button class="pill" data-frame="9:16" aria-pressed="true">9:16</button>
+          <button class="pill" data-frame="16:9" aria-pressed="false">16:9</button>
+          <button class="pill" data-frame="1:1" aria-pressed="false">1:1</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="clip-list" id="clipList" aria-label="Generated clips"></div>
+
+    <div class="studio">
+      <!-- LEFT -->
+      <div class="left">
+        <div class="player-wrap">
+          <div class="player" id="playerBox">
+            <div class="split-top" id="splitTop" hidden>
+              <video id="splitVideo" muted playsinline></video>
+              <div class="demo-stage" id="splitDemo" hidden></div>
+            </div>
+            <video id="mainVideo" playsinline controls style="z-index:1"></video>
+            <div class="demo-stage" id="demoStage" hidden></div>
+            <div class="split-bottom" id="splitBottom" hidden>
+              <div><div class="game" id="gameLabel">Subway Surfers HD</div><small>Gameplay layer — demo visual. Your speaker video stays on top.</small></div>
+            </div>
+            <div class="pbadge">
+              <span class="fire" id="scoreBadge">🔥 96/100 Viral Potential</span>
+              <span id="timeBadge">01:42:10 – 01:43:02</span>
+              <span>1080p Full HD</span>
+            </div>
+            <div class="hookbar" id="hookBar" hidden>99% LOG YE GALTI KARTE HAIN!</div>
+            <div class="cap s-hormozi pos-bottom" id="capOverlay" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="progress" aria-hidden="true"><i id="playProgress"></i></div>
+        <p class="small" style="margin:10px 0 0"><b>Why this clip works:</b> <span id="whyLine">Strong hook in the first 3 seconds, one clear idea, and a payoff that makes people comment.</span></p>
+        <p class="tiny muted" id="footageNote" style="margin:6px 0 0">Demo preview — upload a video file above to play your real footage here.</p>
+
+        <div class="pcontrols">
+          <button class="btn btn-sm" id="cycleStyleBtn">Switch Caption Design</button>
+          <button class="btn btn-sm" id="editTranscriptBtn">Edit Transcript Words</button>
+          <button class="btn btn-sm" id="adjustSplitBtn">Adjust Split-Screen</button>
+        </div>
+
+        <div class="card" style="padding:14px;margin-top:14px">
+          <label style="margin-bottom:8px">Caption customisation — applies instantly</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div><label class="tiny">Font</label><select id="fontSel"><option value="Sora">Sora Bold</option><option value="Manrope">Manrope</option><option value="Arial Black">Arial Black</option><option value="Noto Sans Devanagari">Devanagari</option></select></div>
+            <div><label class="tiny">Position</label><select id="posSel"><option value="bottom">Bottom</option><option value="center">Center</option><option value="top">Top</option></select></div>
+            <div><label class="tiny">Text colour</label><input type="color" id="txtColor" value="#ffffff" style="height:42px;padding:4px"></div>
+            <div><label class="tiny">Active word colour</label><input type="color" id="actColor" value="#facc15" style="height:42px;padding:4px"></div>
+          </div>
+          <label style="display:flex;gap:8px;align-items:center;margin:12px 0 0;color:var(--txt);font-size:14px"><input type="checkbox" id="emojiToggle" checked style="width:auto"> Auto-emoji in captions</label>
+        </div>
+
+        <div class="card" style="padding:14px;margin-top:14px">
+          <b>Export — watermark-free</b>
+          <p class="small muted" style="margin:6px 0 10px" id="mp4SupportNote">Checking MP4 recording support in this browser…</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-primary btn-sm" id="dlMp4Btn">Download MP4 (.MP4) — 9:16, no watermark</button>
+            <button class="btn btn-sm" id="dlWebmBtn">Download WebM (fast fallback)</button>
+            <button class="btn btn-sm btn-ghost" id="stopRecBtn" hidden>Stop &amp; Save Recording</button>
+          </div>
+          <div class="progress" hidden id="recProgWrap"><i id="recProg"></i></div>
+          <p class="small" id="recStatus" style="margin:8px 0 0"></p>
+          <div class="warn" id="longWarn" hidden style="margin-top:10px">Long clip: MP4/WebM recording runs in real time and uses memory. Keep this tab open until the download starts. For clips over a few minutes, export in shorter parts.</div>
+          <div class="note" id="convertNote" hidden style="margin-top:10px">This browser cannot record MP4 directly, so the file downloaded as <b>.webm</b>. Convert it to MP4 free with FFmpeg:<br><code style="word-break:break-all">ffmpeg -i clip.webm -c:v libx264 -c:a aac clip.mp4</code><br>Or use any free WebM → MP4 converter. The picture and captions are identical.</div>
+          <p class="tiny muted" style="margin:8px 0 0">Recording captures the framed preview above (video + captions + split-screen layer). No file is uploaded anywhere.</p>
+        </div>
+
+        <h3 style="margin:20px 0 4px;font-size:17px">AI Auto-Thumbnail &amp; Cover</h3>
+        <p class="small muted" style="margin:0">Click a frame to use it. Edit the hook text right on the cover.</p>
+        <div class="frames" id="framesRow"></div>
+        <div class="cover" id="coverBox">
+          <img id="coverImg" src="assets/hero-valley.webp" alt="Selected cover frame">
+          <div class="hook" id="coverHook" contenteditable="true" spellcheck="false">99% LOG YE GALTI KARTE HAIN! 😱</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
+          <input type="text" id="hookInput" value="99% LOG YE GALTI KARTE HAIN! 😱" style="flex:1;min-width:180px" aria-label="Thumbnail hook text">
+          <button class="btn btn-sm" id="applyHookBtn">Apply Hook Text</button>
+          <button class="btn btn-sm" id="dlThumbBtn">Download Thumbnail</button>
+        </div>
+        <p class="tiny muted">Change frame / edit cover text updates the cover used in the YouTube &amp; Instagram modals below.</p>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <label>Language / vibe for post copy</label>
+        <div class="seg" id="vibeSeg" style="margin-bottom:14px">
+          <button class="pill" data-vibe="hinglish" aria-pressed="true">Hinglish Creator Vibe</button>
+          <button class="pill" data-vibe="english" aria-pressed="false">Pure English Viral</button>
+          <button class="pill" data-vibe="hindi" aria-pressed="false">Pure Hindi</button>
+          <button class="pill" data-vibe="edu" aria-pressed="false">Educational / Value</button>
+          <button class="pill" data-vibe="hook" aria-pressed="false">Curiosity Hook</button>
+        </div>
+
+        <div class="field">
+          <label for="aiTitle">AI viral title (YouTube Shorts &amp; Reels cover)</label>
+          <div style="display:flex;gap:8px"><input type="text" id="aiTitle" style="flex:1"><button class="btn btn-sm" id="copyTitleBtn">Copy</button></div>
+        </div>
+        <div class="field">
+          <label for="aiCaption">AI social caption &amp; description</label>
+          <textarea id="aiCaption" rows="7"></textarea>
+        </div>
+        <div class="field">
+          <label>AI trending hashtags — click a tag to remove it</label>
+          <div class="tags" id="tagRow"></div>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <input type="text" id="newTag" placeholder="#add-your-tag" style="flex:1;min-width:150px">
+            <button class="btn btn-sm" id="addTagBtn">Add tag</button>
+            <button class="btn btn-sm" id="copyTagsBtn">Copy All</button>
+            <button class="btn btn-sm btn-primary" id="regenBtn">🔄 Regenerate AI Copy</button>
+          </div>
+        </div>
+        <div class="kv"><span>Clip</span><b id="kvClip">Clip #1</b></div>
+        <div class="kv"><span>Timing</span><b id="kvTime">01:42:10 – 01:43:02</b></div>
+        <div class="kv"><span>Caption style</span><b id="kvStyle">Hormozi Bold</b></div>
+        <div class="kv"><span>Cover frame</span><b id="kvCover">Frame 1 — AI Best</b></div>
+        <div class="kv" style="border-bottom:0"><span>Selected cover hook</span><b id="kvHook">99% LOG YE GALTI KARTE HAIN! 😱</b></div>
+
+        <div style="display:grid;gap:10px;margin-top:16px">
+          <button class="btn btn-red" id="ytBtn">🚀 1-Click Upload to YouTube Shorts</button>
+          <button class="btn btn-ig" id="igBtn">📸 1-Click Upload to Instagram Reels</button>
+          <button class="btn" id="saveClipBtn">Save this clip to My Saved Clips</button>
+          <p class="tiny muted" style="margin:0">Publish buttons open a <b>demo</b> prep modal using this clip's real title, caption, hashtags and cover. Live posting needs real OAuth — Phase 2. Nothing is posted from this page.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="savedWrap" style="margin-top:22px">
+      <h3 style="font-size:19px;margin-bottom:8px">My Saved Clips <span class="demo-tag">Browser only</span></h3>
+      <p class="small muted" style="margin:0 0 10px">Saved in this browser (localStorage). Sign in with the demo login to see your name on saved clips.</p>
+      <div id="savedList"><p class="muted small">No saved clips yet — generate clips, then press “Save this clip”.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW / DEPLOY / FAQ -->
+<section id="how" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head"><h2>How it works</h2></div>
+    <div class="steps">
+      <div class="card step"><div class="n">1</div><h3>Paste or upload</h3><p class="muted small">Link or file, up to 7 hours. Your file stays in the browser — nothing is uploaded to a server in this static build.</p></div>
+      <div class="card step"><div class="n">2</div><h3>Pick length, count &amp; style</h3><p class="muted small">Choose clip length, how many clips, a caption language and one of 6 animated styles. Split-screen gameplay optional.</p></div>
+      <div class="card step"><div class="n">3</div><h3>Edit, export, publish-prep</h3><p class="muted small">Edit the cover and copy in the Studio, export MP4/WebM without a watermark, then prep a YouTube or Instagram post from the same clip data.</p></div>
+    </div>
+
+    <div class="card" id="deploy" style="padding:22px;margin-top:22px">
+      <h2 style="font-size:22px">Deploy this exact page on Vercel — no install step</h2>
+      <p class="muted small">This ships as one static page plus its <code>assets/</code> folder (logo + hero image). Upload both together — the page is not a lone file, because the images live in <code>assets/</code>. There is no server, no database, no runtime dependency, no lockfile, no <code>package.json</code> and no build command. That is why the old code-pack failed on Vercel while installing a dependency that only exists inside the previous builder runtime — this version removes that dependency entirely.</p>
+      <ol class="small" style="line-height:1.9">
+        <li><b>GitHub:</b> create a repo named <code>clipsetuu</code>. Upload <code>index.html</code> and the whole <code>assets/</code> folder to the repo <b>root</b> (not inside another folder, and not as a ZIP).</li>
+        <li><b>Vercel:</b> Add New → Project → Import the <code>clipsetuu</code> repo. Framework Preset: <b>Other</b>. Build Command: leave empty. Output Directory: leave empty / <code>.</code></li>
+        <li><b>Deploy.</b> Vercel serves <code>index.html</code> as a static site. You get a free <code>*.vercel.app</code> link.</li>
+        <li><b>Custom domain (optional, paid):</b> a <code>.com</code> / <code>.in</code> domain is never free — buy one from a registrar, then add it in Vercel → Domains.</li>
+      </ol>
+      <p class="tiny muted" style="margin:0">Description for the GitHub repo: <i>“ClipSetuu is a free AI video clip maker that turns long videos up to 7 hours into viral Shorts, Reels &amp; TikTok clips with Hinglish captions, no watermark, in 1080p.”</i></p>
+    </div>
+
+    <div id="faq" style="margin-top:26px">
+      <h2 style="font-size:22px;margin-bottom:14px">Frequently asked questions</h2>
+      <details><summary>Is ClipSetuu really free?</summary><p class="small muted">Yes — free and unlimited in this build, with no credit counter or paywall anywhere on the page.</p></details>
+      <details><summary>Can I clip a 7-hour video?</summary><p class="small muted">Yes. Uploads up to 7 hours (420 minutes) are accepted. Very long files need a modern browser and enough memory; export long clips in shorter parts if recording feels slow.</p></details>
+      <details><summary>Will my exported clip have a watermark?</summary><p class="small muted">No. Exports are watermark-free. MP4 records directly where the browser supports it; otherwise a WebM file downloads with a conversion note.</p></details>
+      <details><summary>Does the YouTube / Instagram button really post?</summary><p class="small muted">Not yet. The buttons prepare a real publish payload from your clip and show a demo progress flow. Live posting needs real Google/Meta OAuth connections — that is Phase 2, and it is labelled demo everywhere it appears.</p></details>
+      <details><summary>Can a YouTube link alone make a clip?</summary><p class="small muted">No, in any browser-only tool. A link gives the plan (title, thumbnail, timings). To cut real footage, upload the video file itself.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img id="footLogo" src="assets/logo-full.png" alt="ClipSetuu full logo — metallic play button with clipsetuu wordmark">
+      <p class="small muted" style="max-width:420px">Free AI long-to-short video tool. Hinglish captions, AI covers, virality score, watermark-free 1080p export. Static, Vercel-ready — no server, no install step.</p>
+      <p class="tiny muted">Topics: clipsetuu · ai-video-clips · youtube-shorts · instagram-reels · tiktok · hinglish-captions · video-editor · shorts-maker · reels-maker · free-video-tool</p>
+    </div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap">
+      <div><b style="display:block;margin-bottom:8px">Product</b><p class="small muted" style="margin:0;line-height:2"><a href="#console">AI Clip Generator</a><br><a href="#studio">Studio</a><br><a href="#deploy">Deploy on Vercel</a></p></div>
+      <div><b style="display:block;margin-bottom:8px">Resources</b><p class="small muted" style="margin:0;line-height:2"><a href="#how">Help Centre</a><br><a href="#faq">FAQ</a><br><a href="#studio">Demo Clips</a></p></div>
+      <div><button class="btn btn-sm" id="footLogoBtn">Upload Brand Logo</button><br><button class="btn btn-sm btn-ghost" id="resetLogoBtn" style="margin-top:8px">Reset to default logo</button></div>
+    </div>
+  </div>
+  <div class="wrap"><p class="tiny muted" style="margin-top:22px">© 2026 ClipSetuu. Demo login and demo publishing are labelled as such on this page. Your videos and saved clips stay in your browser.</p></div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-label="Sign in">
+  <div class="modal">
+    <button class="x" data-close aria-label="Close">✕</button>
+    <h3>Sign in to ClipSetuu <span class="demo-tag">Demo login</span></h3>
+    <p class="small muted">This is a demo sign-in for this static build. No password is sent anywhere — the session is stored only in this browser. Real Google OAuth is Phase 2.</p>
+    <div class="tabs"><button class="tab" id="tabGoogle" aria-selected="true">Continue with Google</button><button class="tab" id="tabEmail" aria-selected="false">Email / Gmail</button></div>
+    <div id="paneGoogle">
+      <label for="gName">Display name</label><input type="text" id="gName" value="Ankit" autocomplete="name">
+      <label for="gEmail" style="margin-top:10px">Gmail address</label><input type="email" id="gEmail" value="ankit@gmail.com" autocomplete="email">
+      <button class="btn btn-primary" id="googleGo" style="width:100%;margin-top:14px">Continue with Google (demo)</button>
+    </div>
+    <div id="paneEmail" hidden>
+      <label for="eEmail">Email / Gmail</label><input type="email" id="eEmail" placeholder="you@gmail.com">
+      <label for="ePass" style="margin-top:10px">Password</label><input type="password" id="ePass" placeholder="Any password — demo only, not sent anywhere">
+      <label for="eOtp" style="margin-top:10px">OTP (optional — any 6 digits works in demo)</label><input type="text" id="eOtp" placeholder="123456" maxlength="6" inputmode="numeric">
+      <button class="btn btn-primary" id="emailGo" style="width:100%;margin-top:14px">Sign in with email (demo)</button>
+    </div>
+    <p class="tiny muted" style="margin-top:12px">Signed-in users see their name on saved clips. Signing out clears the browser session only.</p>
+  </div>
+</div>
+
+<!-- TRANSCRIPT MODAL -->
+<div class="overlay" id="transcriptOverlay" role="dialog" aria-modal="true" aria-label="Edit transcript">
+  <div class="modal">
+    <button class="x" data-close aria-label="Close">✕</button>
+    <h3>Edit transcript words</h3>
+    <p class="small muted">One caption line per row. These exact words appear over the preview and in the export.</p>
+    <label for="transcriptBox">Caption lines</label>
+    <textarea id="transcriptBox" rows="6"></textarea>
+    <button class="btn btn-primary" id="saveTranscriptBtn" style="width:100%;margin-top:12px">Save transcript</button>
+  </div>
+</div>
+
+<!-- PUBLISH MODAL -->
+<div class="overlay" id="publishOverlay" role="dialog" aria-modal="true" aria-label="Publish preparation">
+  <div class="modal">
+    <button class="x" data-close aria-label="Close">✕</button>
+    <h3 id="pubTitle">Upload to YouTube Shorts <span class="demo-tag">Demo — no live post</span></h3>
+    <p class="small muted" id="pubIntro">Pre-filled from the selected clip. Review, then run the demo publish flow.</p>
+    <div class="src-preview" style="margin:0 0 12px">
+      <img id="pubCover" src="assets/hero-valley.webp" alt="Selected cover frame for this clip">
+      <div style="min-width:0;flex:1"><b id="pubClipName" style="display:block">Clip #1</b><span class="small muted" id="pubClipMeta">1080p · No watermark</span></div>
+    </div>
+    <div class="field"><label>Connected account</label><div class="kv" style="border:0;padding:0"><span id="pubAccount">Demo account — not connected</span><b>Demo</b></div><p class="tiny muted" style="margin:4px 0 0">Real OAuth connection is Phase 2. No account is accessed from this page.</p></div>
+    <div class="field"><label for="pubTitleField">Title</label><input type="text" id="pubTitleField"></div>
+    <div class="field"><label for="pubDescField">Description / caption</label><textarea id="pubDescField" rows="3"></textarea></div>
+    <div class="field"><label>Hashtags</label><div class="tags" id="pubTags"></div></div>
+    <div class="field"><label>Publish mode</label>
+      <label style="display:flex;gap:8px;color:var(--txt);font-size:14px;margin-bottom:6px"><input type="radio" name="pubMode" value="now" checked style="width:auto"> Publish immediately (1-click, demo)</label>
+      <label style="display:flex;gap:8px;color:var(--txt);font-size:14px"><input type="radio" name="pubMode" value="schedule" style="width:auto"> Schedule — <input type="datetime-local" id="pubWhen" style="width:auto;flex:1"></label>
+    </div>
+    <div class="progress" hidden id="pubProgWrap"><i id="pubProg"></i></div>
+    <p class="small" id="pubStatus" style="margin:8px 0"></p>
+    <div class="note" id="pubDone" hidden>Demo publish prepared. <b>No live Short/Reel was posted.</b> To post for real, connect YouTube/Instagram OAuth in Phase 2, then re-run this flow with the same title, caption, hashtags and cover.</div>
+    <details style="margin-top:10px"><summary class="small">View publish payload (what would be sent)</summary><pre id="pubPayload" class="tiny" style="white-space:pre-wrap;word-break:break-word"></pre></details>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+      <button class="btn btn-primary" id="pubGoBtn" style="flex:1">Publish (demo)</button>
+      <button class="btn" id="copyPayloadBtn">Copy payload</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<video id="metaVideo" preload="metadata" style="display:none"></video>
+<canvas id="recCanvas" width="1080" height="1920" style="display:none"></canvas>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var LS_LOGO="clipsetuu_logo_v1",LS_SESS="clipsetuu_session_v1",LS_SAVED="clipsetuu_saved_v1";
+var DEFAULT_MARK="assets/logo-mark.png",DEFAULT_FULL="assets/logo-full.png",HERO="assets/hero-valley.webp";
+function toast(m){var t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(function(){t.style.display="none"},3200)}
+function fmt(s){s=Math.max(0,Math.round(s));var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;function p(n){return (n<10?"0":"")+n}return p(h)+":"+p(m)+":"+p(x)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function read(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function segInit(id,fn){var el=$(id);el.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;Array.prototype.forEach.call(el.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");fn(b)})}
+
+/* ---------- logo ---------- */
+function applyLogo(u){$("brandMark").src=u;$("heroLogo").src=(u===DEFAULT_MARK?DEFAULT_FULL:u);$("footLogo").src=(u===DEFAULT_MARK?DEFAULT_FULL:u)}
+(function(){var saved=read(LS_LOGO);if(saved)applyLogo(saved)})();
+function uploadLogo(file){if(!file)return;if(file.size>2500000){toast("Logo is over 2.5 MB — please use a smaller PNG/WebP.");return}
+  var r=new FileReader();r.onload=function(){store(LS_LOGO,r.result);applyLogo(r.result);toast("Brand logo updated — saved in this browser.")};r.readAsDataURL(file)}
+$("logoBtn").addEventListener("click",function(){$("logoFile").click()});
+$("footLogoBtn").addEventListener("click",function(){$("logoFile").click()});
+$("logoFile").addEventListener("change",function(){uploadLogo(this.files[0]);this.value=""});
+$("resetLogoBtn").addEventListener("click",function(){try{localStorage.removeItem(LS_LOGO)}catch(e){}applyLogo(DEFAULT_MARK);toast("Default ClipSetuu logo restored.")});
+
+/* ---------- menus / tools / niches ---------- */
+var TOOLS=["AI Clip Generator","YouTube Thumbnail Downloader","YouTube to Shorts","AI Captions","AI Reframe","AI Video Editor","Virality Score","Subway Surfers Video Generator","Minecraft Video Generator","ASMR Video Generator","Podcast to TikTok","Podcast to Reels","Twitch to TikTok","Webinar to Shorts","Video Transcription","Download Transcript","AI Video Summarizer","Post Scheduler","AI Hook Generator","Headline Match Cut","Highlight Text Animation","Video Silence Remover","Video Resizer","Video Compressor","Gaming Highlight Clipper","Interview to Clips","Podcast Clip Maker","Talking Head Editor","Tutorial Clip Generator","Video Highlight Generator"];
+var NICHES=["YouTube","Podcast","TikTok","Instagram","Education","Fitness","Gaming","Coaching","Entertainment","Media","Streaming","News","Sports","Lifestyle","Marketing","Live Streaming"];
+$("toolsGrid").innerHTML=TOOLS.map(function(t){return '<button type="button" data-tool="'+esc(t)+'"><span class="dot"></span>'+esc(t)+'</button>'}).join("");
+$("nicheGrid").innerHTML=NICHES.map(function(t){return '<button type="button" data-tool="'+esc(t)+'">'+esc(t)+'</button>'}).join("");
+document.querySelectorAll("[data-menu] .navbtn").forEach(function(b){b.addEventListener("click",function(e){e.stopPropagation();var p=b.parentElement,was=p.classList.contains("open");document.querySelectorAll(".navitem").forEach(function(n){n.classList.remove("open")});if(!was)p.classList.add("open")})});
+document.addEventListener("click",function(e){if(!e.target.closest(".navitem"))document.querySelectorAll(".navitem").forEach(function(n){n.classList.remove("open")});if(!e.target.closest("#userMenu")&&!e.target.closest("#authArea"))$("userMenu").classList.remove("open")});
+document.addEventListener("click",function(e){var b=e.target.closest("[data-tool]");if(!b)return;$("toolChip").textContent="Tool: "+b.getAttribute("data-tool");document.querySelectorAll(".navitem").forEach(function(n){n.classList.remove("open")});document.getElementById("console").scrollIntoView({behavior:"smooth"});toast(b.getAttribute("data-tool")+" selected — paste a link or upload a file below.")});
+$("hambBtn").addEventListener("click",function(){var n=document.querySelector("nav.main");n.style.display=(n.style.display==="flex")?"none":"flex";n.style.flexDirection="column";n.style.position="absolute";n.style.top="66px";n.style.left="0";n.style.right="0";n.style.background="#0E111A";n.style.padding="12px";n.style.zIndex="65"});
+
+/* ---------- language switcher (UI strings) ---------- */
+var I18N={en:{h1:'Turn One Video Into <span class="grad">Viral Shorts</span> Automatically',lead:"Paste a link or upload a file up to 7 hours. Get Hinglish animated captions, AI covers, a virality score — and watermark-free 1080p clips. Free and unlimited, in your browser.",gen:"Generate Unlimited Full HD Clips ✨"},
+hinglish:{h1:'Ek Video Se <span class="grad">Viral Shorts</span> Banao, Automatically',lead:"Link paste karo ya 7 ghante tak ki file upload karo. Hinglish animated captions, AI cover, virality score — aur bina watermark ke 1080p clips. Free aur unlimited, seedha browser me.",gen:"Unlimited Full HD Clips Generate Karo ✨"},
+hi:{h1:'Ek Video Se <span class="grad">Viral Shorts</span> Banayein, Automatically',lead:"Link paste karein ya 7 ghante tak ki file upload karein. Hinglish animated captions, AI cover, virality score — aur bina watermark ke 1080p clips.",gen:"Unlimited Full HD Clips Generate Karein ✨"},
+es:{h1:'Convierte un video en <span class="grad">Shorts virales</span> automáticamente',lead:"Pega un enlace o sube un archivo de hasta 7 horas. Subtítulos animados, portadas con IA y clips 1080p sin marca de agua, gratis e ilimitado.",gen:"Generar clips Full HD ilimitados ✨"}};
+$("langSel").addEventListener("change",function(){var d=I18N[this.value]||I18N.en;document.querySelector('[data-i18n="h1"]').innerHTML=d.h1;document.querySelector('[data-i18n="lead"]').textContent=d.lead;$("generateBtn").textContent=d.gen;store("clipsetuu_lang",this.value);toast("Language: "+this.selectedOptions[0].text)});
+
+/* ---------- auth (demo, localStorage only) ---------- */
+function session(){try{return JSON.parse(read(LS_SESS)||"null")}catch(e){return null}}
+function renderAuth(){var s=session(),a=$("authArea");
+  if(s){a.innerHTML='<button class="avatar" id="avatarBtn" aria-label="Account menu">'+esc((s.name||"U")[0].toUpperCase())+'</button>';
+    $("avatarBtn").addEventListener("click",function(e){e.stopPropagation();renderUserMenu();$("userMenu").classList.toggle("open")});
+  }else{a.innerHTML='<button class="btn btn-sm" id="loginBtn">Continue with Google</button>';$("loginBtn").addEventListener("click",openLogin)}}
+function renderUserMenu(){var s=session()||{name:"Guest",email:""},saved=savedClips();
+  $("userMenu").innerHTML='<div class="row"><span class="avatar">'+esc((s.name||"U")[0].toUpperCase())+'</span><div><b>'+esc(s.name)+'</b><br><span class="small muted">'+esc(s.email)+'</span><br><span class="demo-tag">Demo session</span></div></div>'
+  +'<div class="row"><span style="flex:1">My Saved Clips</span><b>'+saved.length+'</b></div>'
+  +'<div class="row"><span style="flex:1">YouTube account</span><span class="small muted">Not connected (demo)</span></div>'
+  +'<div class="row"><span style="flex:1">Instagram account</span><span class="small muted">Not connected (demo)</span></div>'
+  +'<div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-sm" id="menuSaved" style="flex:1">View saved clips</button><button class="btn btn-sm" id="signOutBtn" style="flex:1">Sign out</button></div>'
+  +'<p class="tiny muted" style="margin:10px 0 0">Real Google OAuth is Phase 2. This session lives only in this browser.</p>';
+  $("menuSaved").addEventListener("click",function(){$("userMenu").classList.remove("open");document.getElementById("savedWrap").scrollIntoView({behavior:"smooth"})});
+  $("signOutBtn").addEventListener("click",function(){try{localStorage.removeItem(LS_SESS)}catch(e){}$("userMenu").classList.remove("open");renderAuth();toast("Signed out (demo session cleared).")})}
+function openLogin(){$("loginOverlay").classList.add("open")}
+function closeOverlays(){document.querySelectorAll(".overlay").forEach(function(o){o.classList.remove("open")})}
+document.querySelectorAll("[data-close]").forEach(function(b){b.addEventListener("click",closeOverlays)});
+document.querySelectorAll(".overlay").forEach(function(o){o.addEventListener("click",function(e){if(e.target===o)closeOverlays()})});
+function doLogin(name,email){if(!email||email.indexOf("@")<0){toast("Please enter a valid email address.");return}store(LS_SESS,JSON.stringify({name:name||email.split("@")[0],email:email,at:Date.now()}));closeOverlays();renderAuth();toast("Signed in (demo) as "+email)}
+$("tabGoogle").addEventListener("click",function(){$("tabGoogle").setAttribute("aria-selected","true");$("tabEmail").setAttribute("aria-selected","false");$("paneGoogle").hidden=false;$("paneEmail").hidden=true});
+$("tabEmail").addEventListener("click",function(){$("tabEmail").setAttribute("aria-selected","true");$("tabGoogle").setAttribute("aria-selected","false");$("paneEmail").hidden=false;$("paneGoogle").hidden=true});
+$("googleGo").addEventListener("click",function(){doLogin($("gName").value.trim(),$("gEmail").value.trim())});
+$("emailGo").addEventListener("click",function(){doLogin($("eEmail").value.trim().split("@")[0],$("eEmail").value.trim())});
+renderAuth();
+
+/* ---------- caption styles ---------- */
+var STYLES=[
+ {id:"hormozi",name:"Hormozi Bold",cls:"s-hormozi",prev:'<span style="color:#FACC15;background:#15803D;padding:0 3px">BHAI YE</span> TRICK DEKHO'},
+ {id:"mrbeast",name:"MrBeast Impact",cls:"s-mrbeast",prev:'<span style="display:inline-block;transform:rotate(-3deg)">YE VIDEO</span> DEKHO!'},
+ {id:"iman",name:"Iman Minimal",cls:"s-iman",prev:'bhai, ye trick <u style="text-decoration-color:#FACC15">dekho</u>'},
+ {id:"neon",name:"Neon Cyber Glow",cls:"s-neon",prev:'<span style="color:#22D3EE;box-shadow:0 0 10px #D946EF">ye trick</span> dekho'},
+ {id:"karaoke",name:"Karaoke Box Fill",cls:"s-karaoke",prev:'<span style="background:#4C1D95;padding:2px 5px;border-radius:5px">bhai ye</span> <span style="background:#FACC15;color:#111;padding:2px 5px;border-radius:5px">trick</span>'},
+ {id:"hook",name:"Hook Banner",cls:"s-hook",prev:'<span style="background:#DC2626;color:#fff;padding:2px 6px">99% LOG GALTI KARTE HAIN</span>'}];
+var state={len:"auto",count:"auto",split:"none",clang:"hinglish",style:0,vibe:"hinglish",frame:"9:16",source:null,fileURL:null,duration:null,clips:[],cur:0,regen:0,selectedFrame:0,coverHook:"99% LOG YE GALTI KARTE HAIN! 😱",frames:[],capTick:0,capTimer:null};
+$("styleGrid").innerHTML=STYLES.map(function(s,i){return '<button type="button" class="style-card" data-style="'+i+'" aria-pressed="'+(i===0)+'"><b>'+esc(s.name)+'</b><span class="prev">'+s.prev+'</span></button>'}).join("");
+$("styleGrid").addEventListener("click",function(e){var b=e.target.closest("[data-style]");if(!b)return;setStyle(parseInt(b.getAttribute("data-style"),10))});
+function setStyle(i){state.style=i;Array.prototype.forEach.call($("styleGrid").querySelectorAll(".style-card"),function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false")});
+  var cap=$("capOverlay");cap.className="cap pos-"+$("posSel").value+" "+STYLES[i].cls;$("playerBox").classList.toggle("hook",STYLES[i].id==="hook");$("hookBar").hidden=(STYLES[i].id!=="hook");if(STYLES[i].id==="hook")$("hookBar").textContent=state.coverHook;
+  $("kvStyle").textContent=STYLES[i].name;renderCaption(true)}
+function segState(){}
+segInit("lenSeg",function(b){state.len=b.getAttribute("data-len")});
+segInit("countSeg",function(b){state.count=b.getAttribute("data-count")});
+segInit("splitSeg",function(b){state.split=b.getAttribute("data-split");applySplit()});
+segInit("capLangSeg",function(b){state.clang=b.getAttribute("data-clang");regenerateClipsFromTitle()});
+segInit("vibeSeg",function(b){state.vibe=b.getAttribute("data-vibe");renderCopy()});
+segInit("frameSeg",function(b){state.frame=b.getAttribute("data-frame");var p=$("playerBox");p.classList.remove("wide","square");if(state.frame==="16:9")p.classList.add("wide");if(state.frame==="1:1")p.classList.add("square")});
+$("cycleStyleBtn").addEventListener("click",function(){setStyle((state.style+1)%STYLES.length)});
+$("adjustSplitBtn").addEventListener("click",function(){var modes=["none","Subway Surfers HD","Minecraft Parkour","GTA V Mega Ramp","ASMR Soap Cutting"];var nx=modes[(modes.indexOf(state.split)+1)%modes.length];state.split=nx;
+  Array.prototype.forEach.call($("splitSeg").querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x.getAttribute("data-split")===nx?"true":"false")});applySplit();toast("Split-screen: "+nx)});
+function applySplit(){var on=state.split!=="none";$("splitTop").hidden=!on;$("splitBottom").hidden=!on;$("playerBox").classList.toggle("split-on",on);$("gameLabel").textContent=state.split;
+  $("splitBottom").style.background=state.split.indexOf("Minecraft")>-1?"linear-gradient(180deg,#3B7D2E,#6B4A2F)":state.split.indexOf("GTA")>-1?"linear-gradient(180deg,#F59E0B,#7C2D12)":state.split.indexOf("ASMR")>-1?"linear-gradient(180deg,#F472B6,#7C3AED)":"linear-gradient(180deg,#334155,#0F172A)";
+  if(on&&state.fileURL){$("splitVideo").src=state.fileURL;$("splitVideo").hidden=false;$("splitDemo").hidden=true}else if(on){$("splitVideo").hidden=true;$("splitDemo").hidden=false}
+  $("mainVideo").style.objectPosition=on?"center 30%":"center center"}
+$("fontSel").addEventListener("change",function(){$("capOverlay").style.fontFamily=this.value});
+$("posSel").addEventListener("change",function(){$("capOverlay").className="cap pos-"+this.value+" "+STYLES[state.style].cls});
+$("txtColor").addEventListener("input",function(){$("capOverlay").style.color=this.value});
+$("actColor").addEventListener("input",function(){document.documentElement.style.setProperty("--act",this.value);renderCaption(true)});
+$("emojiToggle").addEventListener("change",function(){regenerateClipsFromTitle()});
+
+/* ---------- source ingestion ---------- */
+$("tabUrl").addEventListener("click",function(){$("tabUrl").setAttribute("aria-selected","true");$("tabFile").setAttribute("aria-selected","false");$("paneUrl").hidden=false;$("paneFile").hidden=true});
+$("tabFile").addEventListener("click",function(){$("tabFile").setAttribute("aria-selected","true");$("tabUrl").setAttribute("aria-selected","false");$("paneFile").hidden=false;$("paneUrl").hidden=true});
+var dz=$("dropZone");dz.addEventListener("click",function(){$("fileInput").click()});
+dz.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")$("fileInput").click()});
+["dragover","dragenter"].forEach(function(ev){dz.addEventListener(ev,function(e){e.preventDefault();dz.classList.add("drag")})});
+["dragleave","drop"].forEach(function(ev){dz.addEventListener(ev,function(e){e.preventDefault();dz.classList.remove("drag")})});
+dz.addEventListener("drop",function(e){var f=e.dataTransfer.files[0];if(f)handleFile(f)});
+$("fileInput").addEventListener("change",function(){if(this.files[0])handleFile(this.files[0])});
+function setSourcePreview(title,meta,thumb){$("srcPreview").hidden=false;$("srcTitle").textContent=title;$("srcMeta").textContent=meta;if(thumb)$("srcThumb").src=thumb}
+function handleFile(f){if(!f)return;if(state.fileURL)URL.revokeObjectURL(state.fileURL);state.fileURL=URL.createObjectURL(f);state.source={kind:"file",name:f.name};
+  var mv=$("metaVideo");mv.src=state.fileURL;mv.onloadedmetadata=function(){state.duration=mv.duration;showDuration(f.name+" · "+(f.size/1048576).toFixed(1)+" MB");buildFramesFromVideo()};
+  mv.onerror=function(){showDuration(f.name+" · duration could not be read")};
+  function showDuration(meta){setSourcePreview(f.name,meta,HERO);if(state.duration){if(state.duration>25200){$("durBadge").textContent="Duration: "+fmt(state.duration)+" — over 7 hours";toast("This file is over 7 hours. Trim it to 7 hours or less before generating.")}else{$("durBadge").textContent="Duration: "+fmt(state.duration)+" ✓ Supported"}}
+    else{$("durBadge").textContent="Duration: — · up to 7h supported"}
+    $("srcTitleEdit").value=f.name.replace(/\.[a-z0-9]+$/i,"").replace(/[-_]+/g," ");generateClips()}
+  $("mainVideo").src=state.fileURL;$("footageNote").textContent="Real footage loaded — this is your uploaded file, playing in your browser."}
+function analyseURL(){var u=$("urlInput").value.trim();if(!u){toast("Paste a video URL first.");return}
+  var m=u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
+  if(m){var id=m[1];state.source={kind:"youtube",id:id,url:u};var th="https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";var img=new Image();img.onload=function(){setSourcePreview("YouTube video · "+id,"YouTube link detected — title & duration are not readable from a link in a browser. Edit the title below, or upload the file for real footage.",th)};img.onerror=function(){setSourcePreview("YouTube video · "+id,"YouTube link detected — thumbnail unavailable. Edit the title below.",HERO)};img.src=th;$("durBadge").textContent="Duration: not read from link · 7h limit applies";$("srcTitleEdit").value="My YouTube video "+id}
+  else if(/\.mp4(\?|$)/i.test(u)){state.source={kind:"mp4",url:u};state.fileURL=u;$("metaVideo").src=u;$("metaVideo").onloadedmetadata=function(){state.duration=$("metaVideo").duration;$("durBadge").textContent="Duration: "+fmt(state.duration)+" ✓ Supported"};$("metaVideo").onerror=function(){$("durBadge").textContent="Duration: — · MP4 link"};setSourcePreview("Public MP4 link",u,HERO);$("mainVideo").src=u;$("srcTitleEdit").value="My MP4 video";$("footageNote").textContent="MP4 link loaded — playback depends on the host allowing it."}
+  else{state.source={kind:"link",url:u};setSourcePreview("Video link","Link detected ("+u.slice(0,48)+"…). Title and duration are not readable from the link — edit the title below.",HERO);$("durBadge").textContent="Duration: — · up to 7h supported";$("srcTitleEdit").value="My long video"}
+  toast("Link analysed — generate clips to build the Studio plan.")}
+$("analyseBtn").addEventListener("click",analyseURL);
+$("srcTitleEdit").addEventListener("input",function(){regenerateClipsFromTitle()});
+
+/* ---------- clip generation (client-side templates) ---------- */
+var HOOKS={hinglish:["Bhai ye trick dekho 🔥","99% log ye galti karte hain! 😱","Ye wala part mat miss karna 👀","Sach ye hai ki…","3 second ruko, ye kamaal hai ✨","Ye secret koi nahi batata 🤫"],
+hindi:["भाई, ये ट्रिक देखो 🔥","99% लोग ये गलती करते हैं! 😱","ये वाला हिस्सा मत छोड़ना 👀","सच ये है कि…","3 सेकंड रुको, ये कमाल है ✨","ये सीक्रेट कोई नहीं बताता 🤫"],
+english:["Bro, watch this trick 🔥","99% of people make this mistake! 😱","Don't skip this part 👀","Here's the truth…","Wait 3 seconds, this is gold ✨","Nobody tells you this secret 🤫"]};
+var LINES={hinglish:[["bhai","ye","trick","dekho","🔥"],["ye","wala","part","mat","miss","karna"],["isiliye","ye","itna","viral","ho","raha","hai"],["comment","mein","LINK","likho","part","2","ke","liye"]],
+hindi:[["भाई","ये","ट्रिक","देखो"],["ये","वाला","हिस्सा","मत","छोड़ना"],["इसीलिए","ये","इतना","वायरल","हो","रहा","है"],["कमेंट","में","LINK","लिखो"]],
+english:[["bro","watch","this","trick"],["don't","skip","this","part"],["that's","why","this","is","going","viral"],["comment","LINK","for","part","2"]]};
+var WHY=["Strong hook in the first 3 seconds, one clear idea, and a payoff that makes people comment.","A surprising claim up front, then proof — the pattern viewers finish and share.","Clear before/after contrast in under a minute, with a question that invites replies.","One teachable moment, told fast, with the best line placed at the very start."];
+function baseTitle(){var t=$("srcTitleEdit").value.trim()||"My long video";return t}
+function clipLenSec(){if(state.len==="auto")return 52;return parseInt(state.len,10)===30?24:parseInt(state.len,10)===60?45:parseInt(state.len,10)===90?75:120}
+function genClips(silent){var n,total=state.duration||3600;var len=clipLenSec();
+  if(state.count==="auto")n=Math.min(10,Math.max(3,Math.floor(total/900)));else n=parseInt(state.count,10);
+  var hooks=HOOKS[state.clang],lines=LINES[state.clang];
+  state.clips=[];var step=Math.max(len+40,Math.floor(total/Math.max(n,1)));
+  for(var i=0;i<n;i++){var start=Math.min(total-len-1,130+i*step);if(start<0)start=i*70;
+    var hook=hooks[(i+state.regen)%hooks.length];
+    state.clips.push({n:i+1,start:start,end:start+len,score:82+((i*7+state.regen*3)%17),why:WHY[i%WHY.length],hook:hook,title:hook+" — "+baseTitle(),lines:lines.map(function(l){return l.slice()}),tags:baseTags()})}
+  state.cur=0;renderClipList();renderStudio();renderCopy();buildFrames();if(!silent)toast(n+" clips generated — Studio ready below.")}
+function baseTags(){var t=["#shorts","#reelsindia","#viralvideos","#podcastclips"];if(state.clang==="hinglish")t.push("#hinglish","#desicreator");if(state.clang==="hindi")t.push("#hindi","#hindishorts");t.push("#clipsetuu");return t}
+function regenerateClipsFromTitle(){if(!state.clips.length)return;var hooks=HOOKS[state.clang],lines=LINES[state.clang];
+  state.clips.forEach(function(c,i){c.hook=hooks[(i+state.regen)%hooks.length];c.title=c.hook+" — "+baseTitle();c.lines=lines.map(function(l){return l.slice()})});
+  renderStudio();renderCopy();buildFrames()}
+function renderClipList(){$("clipList").innerHTML=state.clips.map(function(c,i){return '<button class="pill" data-clip="'+i+'" aria-pressed="'+(i===state.cur)+'">Clip #'+c.n+' · '+fmt(c.start)+' · 🔥 '+c.score+'</button>'}).join("");
+  $("clipList").querySelectorAll("[data-clip]").forEach(function(b){b.addEventListener("click",function(){state.cur=parseInt(b.getAttribute("data-clip"),10);renderClipList();renderStudio();renderCopy();buildFrames()})})}
+function curClip(){return state.clips[state.cur]||{n:1,start:130,end:182,score:96,why:WHY[0],hook:state.coverHook,title:baseTitle(),lines:LINES[state.clang],tags:baseTags()}}
+function renderStudio(){var c=curClip();$("scoreBadge").textContent="🔥 "+c.score+"/100 Viral Potential";$("timeBadge").textContent=fmt(c.start)+" – "+fmt(c.end);$("whyLine").textContent=c.why;
+  $("kvClip").textContent="Clip #"+c.n;$("kvTime").textContent=fmt(c.start)+" – "+fmt(c.end);
+  state.coverHook=c.hook;$("kvHook").textContent=state.coverHook;$("coverHook").textContent=c.hook;$("hookInput").value=c.hook;if(STYLES[state.style].id==="hook")$("hookBar").textContent=c.hook;
+  var hasFile=!!state.fileURL;$("mainVideo").hidden=!hasFile;$("demoStage").hidden=hasFile;
+  if(hasFile){var v=$("mainVideo");try{v.currentTime=Math.min(c.start,Math.max(0,(v.duration||c.end)-1))}catch(e){}v.pause();$("splitVideo").src=state.fileURL}
+  $("longWarn").hidden=(c.end-c.start)<=60;$("kvCover").textContent="Frame "+(state.selectedFrame+1)+(state.selectedFrame===0?" — AI Best":"");
+  renderCaption(true);applySplit();startCapTimer()}
+function renderCaption(force){var c=curClip();var lines=c.lines&&c.lines.length?c.lines:[["bhai","ye","trick","dekho"]];
+  var lineIdx=Math.floor(state.capTick/6)%lines.length;var words=lines[lineIdx];var idx=state.capTick%Math.max(1,words.length);var useEmoji=$("emojiToggle").checked;
+  var html=words.map(function(w,i){var ww=useEmoji?w:w.replace(/🔥|👀|✨|🤫|😱/g,"").trim();return '<span class="w'+(i===idx?" act":"")+'">'+esc(ww||w)+'</span>'}).join(" ");
+  $("capOverlay").innerHTML=html;$("capOverlay").style.setProperty("--act",$("actColor").value)}
+function startCapTimer(){if(state.capTimer)clearInterval(state.capTimer);state.capTick=0;
+  state.capTimer=setInterval(function(){var v=$("mainVideo");if(!$("mainVideo").hidden&&!v.paused&&isFinite(v.duration)){var c=curClip();var el=Math.max(0,v.currentTime-c.start);state.capTick=Math.floor(el/0.45)}else{state.capTick++}renderCaption();var c2=curClip();if(!$("mainVideo").hidden&&isFinite(v.duration)&&v.duration>0){$("playProgress").style.width=Math.min(100,Math.max(0,(v.currentTime-c2.start)/(c2.end-c2.start)*100))+"%"}},450)}
+$("mainVideo").addEventListener("timeupdate",function(){var c=curClip();if(this.currentTime>=c.end){this.pause();this.currentTime=c.start}});
+$("splitVideo").addEventListener("timeupdate",function(){});
+setInterval(function(){var m=$("mainVideo"),s=$("splitVideo");if(!$("splitTop").hidden&&!m.paused){try{if(Math.abs(s.currentTime-m.currentTime)>0.3)s.currentTime=m.currentTime;if(s.paused)s.play()}catch(e){}}},500);
+$("generateBtn").addEventListener("click",function(){genClips();document.getElementById("studio").scrollIntoView({behavior:"smooth"})});
+
+/* ---------- frames / cover ---------- */
+function buildFrames(){var row=$("framesRow");var filters=["","saturate(1.25) contrast(1.05)","hue-rotate(18deg) saturate(1.2)","brightness(1.12) sepia(.25)"];
+  state.frames=filters.map(function(f,i){return {src:HERO,filter:f,best:i===0}});
+  row.innerHTML=state.frames.map(function(fr,i){return '<button type="button" class="frame" data-frame="'+i+'" aria-pressed="'+(i===state.selectedFrame)+'" aria-label="Cover frame '+(i+1)+'">'+(i===0?'<span class="best">AI BEST</span>':"")+'<img src="'+fr.src+'" style="filter:'+fr.filter+'" alt="Keyframe '+(i+1)+'"></button>'}).join("");
+  row.querySelectorAll("[data-frame]").forEach(function(b){b.addEventListener("click",function(){selectFrame(parseInt(b.getAttribute("data-frame"),10))})});
+  selectFrame(state.selectedFrame,true)}
+function selectFrame(i,silent){state.selectedFrame=i;var fr=state.frames[i]||state.frames[0];if(!fr)return;
+  $("coverImg").src=fr.src;$("coverImg").style.filter=fr.filter||"";$("kvCover").textContent="Frame "+(i+1)+(i===0?" — AI Best":"");
+  Array.prototype.forEach.call($("framesRow").querySelectorAll(".frame"),function(b,j){b.setAttribute("aria-pressed",j===i?"true":"false")});
+  if(!silent)toast("Cover frame "+(i+1)+" selected — it will be used in the publish modals.")}
+function buildFramesFromVideo(){var v=document.createElement("video");v.muted=true;v.preload="auto";v.src=state.fileURL;var times=[0.25,0.45,0.65,0.85],out=[],done=0;
+  v.addEventListener("loadedmetadata",function(){times.forEach(function(frac,idx){var t=(v.duration||60)*frac;var seek=function(){v.currentTime=t};
+    var once=function(){var cv=document.createElement("canvas");cv.width=540;cv.height=780;var ctx=cv.getContext("2d");try{ctx.drawImage(v,0,0,540,780)}catch(e){}out[idx]={src:cv.toDataURL("image/jpeg",0.82),filter:"",best:idx===0};done++;if(done===times.length){state.frames=out;buildFrames();toast("4 cover frames captured from your video.")}v.removeEventListener("seeked",once)};v.addEventListener("seeked",once);seek()})});
+  v.addEventListener("error",function(){buildFrames()})}
+$("hookInput").addEventListener("input",function(){state.coverHook=this.value;$("coverHook").textContent=this.value;$("kvHook").textContent=this.value;if(STYLES[state.style].id==="hook")$("hookBar").textContent=this.value});
+$("applyHookBtn").addEventListener("click",function(){state.coverHook=$("hookInput").value;$("coverHook").textContent=state.coverHook;$("kvHook").textContent=state.coverHook;toast("Cover hook text updated.")});
+$("coverHook").addEventListener("input",function(){state.coverHook=this.textContent;$("hookInput").value=this.textContent;$("kvHook").textContent=this.textContent});
+$("dlThumbBtn").addEventListener("click",function(){var cv=document.createElement("canvas");cv.width=1080;cv.height=1440;var ctx=cv.getContext("2d");var img=new Image();img.crossOrigin="anonymous";
+  img.onload=function(){ctx.drawImage(img,0,0,1080,1440);ctx.fillStyle="rgba(0,0,0,.25)";ctx.fillRect(0,0,1080,420);ctx.fillStyle="#fff";ctx.font="800 64px Sora, sans-serif";ctx.textAlign="center";wrapText(ctx,state.coverHook,540,180,900,76);cv.toBlob(function(b){saveBlob(b,"clipsetuu-cover-clip-"+curClip().n+".png")},"image/png")};
+  img.onerror=function(){toast("Thumbnail image could not be loaded — try again after uploading a video file.")};img.src=$("coverImg").src});
+function wrapText(ctx,text,x,y,maxW,lh){var words=text.split(" "),line="",yy=y;for(var i=0;i<words.length;i++){var t=line+words[i]+" ";if(ctx.measureText(t).width>maxW&&line){ctx.fillText(line.trim(),x,yy);line=words[i]+" ";yy+=lh}else line=t}ctx.fillText(line.trim(),x,yy)}
+
+/* ---------- transcript ---------- */
+$("editTranscriptBtn").addEventListener("click",function(){var c=curClip();$("transcriptBox").value=c.lines.map(function(l){return l.join(" ")}).join("\n");$("transcriptOverlay").classList.add("open")});
+$("saveTranscriptBtn").addEventListener("click",function(){var c=curClip();c.lines=$("transcriptBox").value.split("\n").map(function(l){return l.trim().split(/\s+/).filter(Boolean)}).filter(function(l){return l.length});if(!c.lines.length)c.lines=LINES[state.clang];closeOverlays();renderCaption(true);toast("Transcript saved for Clip #"+c.n)});
+
+/* ---------- social copy ---------- */
+function genCopy(c){var v=state.vibe,b=baseTitle(),hook=c.hook;
+  var titles={hinglish:hook+" — "+b+" 🔥",english:hook+" — "+b, hindi:hook+" — "+b, edu:"Seekho: "+b+" (1 minute mein)", hook:"Ye dekhne ke baad tumhara nazariya badal jayega 👀 — "+b};
+  var caps={hinglish:hook+"\n\n• "+b+" ka sabse important part, sirf 1 clip mein\n• Ye galti mat karna — end tak dekho\n\nComment mein 'LINK' likho aur Part 2 ke liye follow karo! 👇",
+  english:hook+"\n\n• The most important part of "+b+", in one clip\n• Don't make this mistake — watch till the end\n\nComment 'LINK' and follow for Part 2!",
+  hindi:hook+"\n\n• "+b+" का सबसे ज़रूरी हिस्सा, एक क्लिप में\n• ये गलती मत करना — अंत तक देखो\n\nकमेंट में 'LINK' लिखो और Part 2 के लिए फॉलो करो!",
+  edu:"Seekhne layak clip 👇\n\n• "+b+"\n• Ek clear idea, ek clear example\n• Save karo, baad mein revision ke kaam aayega",
+  hook:"Pehle ye dekho 👀\n\n"+hook+"\n\n"+b+" — kya tumhe ye pehle se pata tha? Comment mein batao 👇"};
+  return {title:titles[v]||titles.hinglish,caption:caps[v]||caps.hinglish,tags:baseTags().concat(v==="edu"?["#learn","#education"]:v==="hook"?["#curiosity","#mindblown"]:["#trending"])}}
+function renderCopy(){var c=curClip(),g=genCopy(c);
+  if(!$("aiTitle").dataset.touched)$("aiTitle").value=g.title;
+  if(!$("aiCaption").dataset.touched)$("aiCaption").value=g.caption;
+  if(!$("tagRow").dataset.touched){state.tags=g.tags.slice();renderTags()}}
+function renderTags(){$("tagRow").innerHTML=state.tags.map(function(t,i){return '<button type="button" data-tag="'+i+'" title="Click to remove">'+esc(t)+' ✕</button>'}).join("");
+  $("tagRow").querySelectorAll("[data-tag]").forEach(function(b){b.addEventListener("click",function(){state.tags.splice(parseInt(b.getAttribute("data-tag"),10),1);$("tagRow").dataset.touched="1";renderTags()})})}
+$("aiTitle").addEventListener("input",function(){this.dataset.touched="1"});
+$("aiCaption").addEventListener("input",function(){this.dataset.touched="1"});
+$("addTagBtn").addEventListener("click",function(){var v=$("newTag").value.trim();if(!v)return;if(v[0]!=="#")v="#"+v;state.tags.push(v);$("tagRow").dataset.touched="1";$("newTag").value="";renderTags()});
+$("copyTitleBtn").addEventListener("click",function(){copyText($("aiTitle").value,"Title copied.")});
+$("copyTagsBtn").addEventListener("click",function(){copyText(state.tags.join(" "),"Hashtags copied.")});
+function copyText(txt,msg){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast(msg)},function(){fallbackCopy(txt,msg)})}else fallbackCopy(txt,msg)}
+function fallbackCopy(txt,msg){var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast(msg)}catch(e){toast("Copy failed — select the text manually.")}document.body.removeChild(ta)}
+$("regenBtn").addEventListener("click",function(){state.regen++;var c=curClip();var g=genCopy(c);var variants=[""," (Part "+(state.regen+1)+")"," — dekhna mat bhoolna"," | Ye wala best hai"];
+  $("aiTitle").value=g.title+variants[state.regen%variants.length];$("aiTitle").dataset.touched="1";
+  $("aiCaption").value=g.caption;$("aiCaption").dataset.touched="1";
+  state.tags=g.tags.slice();$("tagRow").dataset.touched="1";renderTags();
+  c.hook=HOOKS[state.clang][(c.n-1+state.regen)%HOOKS[state.clang].length];state.coverHook=c.hook;$("coverHook").textContent=c.hook;$("hookInput").value=c.hook;$("kvHook").textContent=c.hook;
+  toast("AI copy regenerated from Clip #"+c.n+"'s actual title, caption and hashtags.")});
+
+/* ---------- saved clips ---------- */
+function savedClips(){try{return JSON.parse(read(LS_SAVED)||"[]")}catch(e){return []}}
+function renderSaved(){var list=savedClips(),el=$("savedList");
+  if(!list.length){el.innerHTML='<p class="muted small">No saved clips yet — generate clips, then press “Save this clip”.</p>';return}
+  el.innerHTML=list.map(function(s,i){return '<div class="saved-item"><img src="'+esc(s.cover||HERO)+'" alt=""><div style="flex:1;min-width:0"><b style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+esc(s.title)+'</b><span class="small muted">'+esc(s.when)+' · '+esc(s.user||"Guest")+' · '+esc(s.timing)+'</span></div><button class="btn btn-sm" data-load="'+i+'">Load</button><button class="btn btn-sm" data-del="'+i+'">Delete</button></div>'}).join("");
+  el.querySelectorAll("[data-load]").forEach(function(b){b.addEventListener("click",function(){var s=list[parseInt(b.getAttribute("data-load"),10)];$("srcTitleEdit").value=s.base||baseTitle();$("aiTitle").value=s.title;$("aiTitle").dataset.touched="1";$("aiCaption").value=s.caption;$("aiCaption").dataset.touched="1";state.tags=s.tags.slice();$("tagRow").dataset.touched="1";renderTags();state.coverHook=s.hook;$("coverHook").textContent=s.hook;$("hookInput").value=s.hook;document.getElementById("studio").scrollIntoView({behavior:"smooth"});toast("Saved clip loaded into the Studio.")})});
+  el.querySelectorAll("[data-del]").forEach(function(b){b.addEventListener("click",function(){var l=savedClips();l.splice(parseInt(b.getAttribute("data-del"),10),1);store(LS_SAVED,JSON.stringify(l));renderSaved();toast("Saved clip deleted.")})})}
+$("saveClipBtn").addEventListener("click",function(){var c=curClip(),s=session();var list=savedClips();
+  list.unshift({title:$("aiTitle").value,caption:$("aiCaption").value,tags:state.tags.slice(),hook:state.coverHook,cover:$("coverImg").src,timing:fmt(c.start)+" – "+fmt(c.end),base:baseTitle(),when:new Date().toLocaleString(),user:s?s.name:"Guest"});
+  store(LS_SAVED,JSON.stringify(list.slice(0,30)));renderSaved();toast("Clip #"+c.n+" saved in this browser (My Saved Clips).")});
+renderSaved();
+
+/* ---------- publish modals (demo) ---------- */
+var pubPlatform="YouTube";
+function openPublish(p){pubPlatform=p;var c=curClip(),s=session();
+  $("pubTitle").innerHTML=(p==="YouTube"?"Upload to YouTube Shorts":"Upload to Instagram Reels")+' <span class="demo-tag">Demo — no live post</span>';
+  $("pubClipName").textContent="Clip #"+c.n+" — "+$("aiTitle").value;$("pubClipMeta").textContent=fmt(c.start)+" – "+fmt(c.end)+" · "+state.frame+" · 1080p · No watermark · Cover: Frame "+(state.selectedFrame+1);
+  $("pubCover").src=$("coverImg").src;$("pubAccount").textContent=s?(s.name+" · "+s.email+" (demo session) — account not connected"):"Demo account — not connected";
+  $("pubTitleField").value=$("aiTitle").value;$("pubDescField").value=$("aiCaption").value+"\n\n"+state.tags.join(" ");
+  $("pubTags").innerHTML=state.tags.map(function(t){return '<button type="button" style="cursor:default">'+esc(t)+'</button>'}).join("");
+  $("pubStatus").textContent="";$("pubDone").hidden=true;$("pubProgWrap").hidden=true;$("pubProg").style.width="0%";$("pubGoBtn").disabled=false;
+  updatePayload();$("publishOverlay").classList.add("open")}
+function updatePayload(){var mode=document.querySelector('input[name="pubMode"]:checked');var payload={platform:pubPlatform,demo:true,live_post:false,title:$("pubTitleField").value,description:$("pubDescField").value,hashtags:state.tags,cover_frame:state.selectedFrame+1,cover_hook:state.coverHook,clip:curClip().n,timing:fmt(curClip().start)+" - "+fmt(curClip().end),resolution:"1080p",watermark:false,publish_mode:mode?mode.value:"now",schedule:mode&&mode.value==="schedule"?$("pubWhen").value:null};
+  $("pubPayload").textContent=JSON.stringify(payload,null,2);return payload}
+document.querySelectorAll('input[name="pubMode"]').forEach(function(r){r.addEventListener("change",updatePayload)});
+$("pubTitleField").addEventListener("input",updatePayload);$("pubDescField").addEventListener("input",updatePayload);
+$("ytBtn").addEventListener("click",function(){openPublish("YouTube")});
+$("igBtn").addEventListener("click",function(){openPublish("Instagram")});
+$("copyPayloadBtn").addEventListener("click",function(){copyText($("pubPayload").textContent,"Publish payload copied.")});
+$("pubGoBtn").addEventListener("click",function(){var btn=this;btn.disabled=true;$("pubProgWrap").hidden=false;var p=0;updatePayload();
+  var iv=setInterval(function(){p+=Math.floor(Math.random()*14)+6;if(p>=100){p=100;clearInterval(iv);$("pubStatus").textContent="Demo upload complete — prepared, not posted.";$("pubDone").hidden=false;btn.disabled=false}else{$("pubStatus").textContent="Demo uploading… "+p+"% — no file leaves this browser."}$("pubProg").style.width=p+"%"},220)});
+
+/* ---------- export: canvas + MediaRecorder ---------- */
+var rec=null,recChunks=[],recTimer=null,recStart=0,recMime="",recExt="webm",heroImg=new Image();
+heroImg.src=HERO;
+function supportedMimes(){var list=["video/mp4;codecs=avc1.42E01E,mp4a.40.2","video/mp4","video/webm;codecs=vp9,opus","video/webm;codecs=vp8,opus","video/webm"];if(!window.MediaRecorder)return[];return list.filter(function(m){try{return MediaRecorder.isTypeSupported(m)}catch(e){return false}})}
+function updateMp4Note(){var sup=supportedMimes();var mp4=sup.some(function(m){return m.indexOf("video/mp4")===0});
+  $("mp4SupportNote").textContent=mp4?"This browser supports direct MP4 recording — Download MP4 will save a real .mp4 file.":"This browser does not support direct MP4 recording — Download MP4 will save WebM with a conversion note (see below). WebM fallback always works.";
+  return mp4}
+updateMp4Note();
+function drawFrame(ctx,W,H,elapsed){var c=curClip();
+  ctx.fillStyle="#0B0E16";ctx.fillRect(0,0,W,H);
+  var hasFile=!!state.fileURL&&!$("mainVideo").hidden&&$("mainVideo").readyState>=2;
+  if(hasFile){var v=$("mainVideo");var vw=v.videoWidth||16,vh=v.videoHeight||9;var sc=Math.max(W/vw,H/vh);var dw=vw*sc,dh=vh*sc;ctx.drawImage(v,(W-dw)/2,(H-dh)/2,dw,dh)}
+  else if(heroImg.complete&&heroImg.naturalWidth){var sc2=Math.max(W/heroImg.naturalWidth,H/heroImg.naturalHeight);var dw2=heroImg.naturalWidth*sc2,dh2=heroImg.naturalHeight*sc2;ctx.drawImage(heroImg,(W-dw2)/2,(H-dh2)/2,dw2,dh2);ctx.fillStyle="rgba(9,10,15,.35)";ctx.fillRect(0,0,W,H)}
+  if(state.split!=="none"){var bh=H*0.5;var g=ctx.createLinearGradient(0,H-bh,0,H);g.addColorStop(0,"#334155");g.addColorStop(1,"#0F172A");ctx.fillStyle=g;ctx.fillRect(0,H-bh,W,bh);ctx.fillStyle="#fff";ctx.font="800 52px Sora, sans-serif";ctx.textAlign="center";ctx.fillText(state.split, W/2, H-bh+90);ctx.font="600 30px Manrope, sans-serif";ctx.fillStyle="#E5E7EB";ctx.fillText("Gameplay layer — demo visual",W/2,H-bh+140);
+    if(hasFile){var v2=$("mainVideo");try{var vw2=v2.videoWidth||16,vh2=v2.videoHeight||9;var sc3=Math.max(W/vw2,(H-bh)/vh2);ctx.drawImage(v2,(W-vw2*sc3)/2,0,vw2*sc3,vh2*sc3)}catch(e){}}}
+  // caption — one phrase at a time, matching the on-screen preview
+  var lines=c.lines&&c.lines.length?c.lines:[["bhai","ye","trick","dekho"]];
+  var words=lines[Math.floor(elapsed/2.7)%lines.length];var idx=Math.floor(elapsed/0.45)%Math.max(1,words.length);
+  var style=STYLES[state.style];ctx.textAlign="center";
+  var cy=$("posSel").value==="top"?H*0.18:$("posSel").value==="center"?(state.split!=="none"?H*0.28:H*0.48):(state.split!=="none"?H*0.40:H*0.82);
+  if(style.id==="hook"){ctx.fillStyle="#DC2626";ctx.fillRect(0,0,W,84);ctx.fillStyle="#fff";ctx.font="800 40px Sora, sans-serif";ctx.fillText(state.coverHook.slice(0,44),W/2,56)}
+  ctx.font="800 54px Sora, sans-serif";
+  var line=words.join(" ");var maxW=W*0.86;var fs=54;while(ctx.measureText(line).width>maxW&&fs>26){fs-=4;ctx.font="800 "+fs+"px Sora, sans-serif"}
+  // draw word by word centred
+  var x=W/2-ctx.measureText(line).width/2;var y=cy;
+  ctx.shadowColor="rgba(0,0,0,.8)";ctx.shadowBlur=10;
+  words.forEach(function(w,i){var ww=w;var wW=ctx.measureText(ww+" ").width;ctx.fillStyle=(i===idx)?$("actColor").value:$("txtColor").value;ctx.fillText(ww,x,y);x+=wW});
+  ctx.shadowBlur=0;
+  ctx.fillStyle="rgba(0,0,0,.55)";ctx.fillRect(16,16,340,52);ctx.fillStyle="#fff";ctx.font="700 28px Manrope, sans-serif";ctx.textAlign="left";ctx.fillText("CLIPSETUU  •  "+fmt(c.start),30,52)}
+function saveBlob(blob,name){var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},800)}
+function startExport(wantMp4){if(rec){toast("A recording is already running — stop it first.");return}
+  if(!window.MediaRecorder){toast("This browser cannot record video. Use Chrome or Edge for export.");return}
+  var sup=supportedMimes();if(!sup.length){toast("No supported recording format in this browser.");return}
+  var mime,ext;if(wantMp4){mime=sup.filter(function(m){return m.indexOf("video/mp4")===0})[0]||sup[0];ext=mime.indexOf("video/mp4")===0?"mp4":"webm"}else{mime=sup.filter(function(m){return m.indexOf("video/webm")===0})[0]||sup[0];ext=mime.indexOf("video/webm")===0?"webm":"mp4"}
+  recMime=mime;recExt=ext;$("convertNote").hidden=!(wantMp4&&ext==="webm");
+  var c=curClip();var dur=c.end-c.start;var W=1080,H=state.frame==="16:9"?608:state.frame==="1:1"?1080:1920;
+  var cv=$("recCanvas");cv.width=W;cv.height=H;var ctx=cv.getContext("2d");
+  var stream=cv.captureStream(30);var mr;try{mr=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:8000000})}catch(e){toast("Recording could not start in this browser: "+e.message);return}
+  recChunks=[];mr.ondataavailable=function(e){if(e.data&&e.data.size)recChunks.push(e.data)};
+  mr.onstop=function(){var type=mime.split(";")[0];var blob=new Blob(recChunks,{type:type});saveBlob(blob,"clipsetuu-clip-"+c.n+"."+ext);
+    $("recStatus").textContent=ext==="mp4"?"MP4 saved — watermark-free, "+fmt(dur)+" clip.":(wantMp4?"WebM saved — this browser could not record MP4 directly, so the file is WebM. See the MP4 conversion note below for the free FFmpeg command.":"WebM saved — watermark-free. To get MP4, convert free with: ffmpeg -i clipsetuu-clip-"+c.n+".webm -c:v libx264 -c:a aac clip.mp4");
+    if(wantMp4&&ext==="webm")toast("Browser saved WebM instead of MP4 — conversion note shown below the buttons.");else toast("Export saved: clipsetuu-clip-"+c.n+"."+ext);
+    rec=null;$("stopRecBtn").hidden=true;$("recProgWrap").hidden=true;$("dlMp4Btn").disabled=false;$("dlWebmBtn").disabled=false};
+  // draw loop
+  var raf,elapsed=0,last=performance.now();
+  function loop(now){if(!rec)return;elapsed=(now-recStart)/1000;drawFrame(ctx,W,H,elapsed);raf=requestAnimationFrame(loop)}
+  rec=mr;recStart=performance.now();mr.start(250);raf=requestAnimationFrame(loop);
+  $("stopRecBtn").hidden=false;$("recProgWrap").hidden=false;$("dlMp4Btn").disabled=true;$("dlWebmBtn").disabled=true;
+  $("recStatus").textContent="Recording… "+(ext==="mp4"?"MP4":"WebM")+" ("+mime+") — keep this tab open. It runs in real time for the "+fmt(dur)+" clip.";
+  clearInterval(recTimer);recTimer=setInterval(function(){var el=(performance.now()-recStart)/1000;$("recProg").style.width=Math.min(100,el/dur*100)+"%";$("recStatus").textContent="Recording… "+fmt(el)+" / "+fmt(dur)+" — keep this tab open.";if(el>=dur)stopExport()},300)}
+function stopExport(){if(!rec)return;try{rec.stop()}catch(e){}clearInterval(recTimer)}
+$("dlMp4Btn").addEventListener("click",function(){startExport(true)});
+$("dlWebmBtn").addEventListener("click",function(){startExport(false)});
+$("stopRecBtn").addEventListener("click",function(){stopExport()});
+
+/* ---------- init demo clips ---------- */
+genClips(true);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeOverlays()});
+})();
+</script>
+</body>
+</html>
