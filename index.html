@@ -7,7 +7,7 @@
 <title>ClipSetuu — Free AI Video Clip Maker | Long Video to Viral Shorts, Hinglish Captions, 1080p, No Watermark</title>
 <meta name="description" content="ClipSetuu is a free AI video clip maker that turns long videos up to 7 hours into viral Shorts, Reels & TikTok clips with Hinglish captions, no watermark, in 1080p. Static, Vercel-ready build — no server, no install step.">
 <meta name="keywords" content="clipsetuu, ai video clips, youtube shorts, instagram reels, tiktok, hinglish captions, video editor, shorts maker, reels maker, free video tool">
-<link rel="canonical" href="https://clipsetuu.vercel.app/">
+<link rel="canonical" href="https://clipsetuu-m4f.vercel.app/">
 <meta property="og:title" content="ClipSetuu — Turn One Video Into Viral Shorts Automatically">
 <meta property="og:description" content="Free, unlimited AI long-to-short video tool. Up to 7 hours, Hinglish animated captions, AI thumbnails, virality score, watermark-free 1080p export.">
 <meta property="og:type" content="website">
@@ -197,6 +197,15 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
   .brand b{font-size:18px}
   .hide-m{display:none!important}
 }
+.legal{max-width:840px;margin:0 auto;padding:44px 20px 20px}
+.legal h1{font-size:clamp(28px,4vw,38px);margin-bottom:8px}
+.legal h2{font-size:20px;margin:26px 0 8px}
+.legal h3{font-size:16px;margin:20px 0 6px}
+.legal p,.legal li{color:#D7DBE3;font-size:15.5px}
+.legal ul,.legal ol{padding-left:22px;line-height:1.75}
+.legal .url-box{background:#0B0E16;border:1px solid var(--line);border-radius:12px;padding:14px 16px;word-break:break-all}
+.legal .url-box code{color:#fff}
+.legal .back{display:inline-flex;margin-bottom:18px}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -383,7 +392,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
             </div>
             <div class="pbadge">
               <span class="fire" id="scoreBadge">🔥 96/100 Viral Potential</span>
-              <span id="timeBadge">01:42:10 – 01:43:02</span>
+              <span id="timeBadge">Demo: 00:02:10 – 00:03:02</span>
               <span>1080p Full HD</span>
             </div>
             <div class="hookbar" id="hookBar" hidden>99% LOG YE GALTI KARTE HAIN!</div>
@@ -392,6 +401,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
         </div>
         <div class="progress" aria-hidden="true"><i id="playProgress"></i></div>
         <p class="small" style="margin:10px 0 0"><b>Why this clip works:</b> <span id="whyLine">Strong hook in the first 3 seconds, one clear idea, and a payoff that makes people comment.</span></p>
+        <p class="tiny" id="clipStartNote" style="margin:6px 0 0;color:var(--gold);font-weight:700">Demo timing — upload a video file to get clips from 00:00:00 of your own video.</p>
         <p class="tiny muted" id="footageNote" style="margin:6px 0 0">Demo preview — upload a video file above to play your real footage here.</p>
 
         <div class="pcontrols">
@@ -471,7 +481,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
           </div>
         </div>
         <div class="kv"><span>Clip</span><b id="kvClip">Clip #1</b></div>
-        <div class="kv"><span>Timing</span><b id="kvTime">01:42:10 – 01:43:02</b></div>
+        <div class="kv"><span>Timing</span><b id="kvTime">Demo: 00:02:10 – 00:03:02</b></div>
         <div class="kv"><span>Caption style</span><b id="kvStyle">Hormozi Bold</b></div>
         <div class="kv"><span>Cover frame</span><b id="kvCover">Frame 1 — AI Best</b></div>
         <div class="kv" style="border-bottom:0"><span>Selected cover hook</span><b id="kvHook">99% LOG YE GALTI KARTE HAIN! 😱</b></div>
@@ -505,9 +515,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
 
     <div class="card" id="deploy" style="padding:22px;margin-top:22px">
       <h2 style="font-size:22px">Deploy this exact page on Vercel — no install step</h2>
-      <p class="muted small">This ships as one static page plus its <code>assets/</code> folder (logo + hero image). Upload both together — the page is not a lone file, because the images live in <code>assets/</code>. There is no server, no database, no runtime dependency, no lockfile, no <code>package.json</code> and no build command. That is why the old code-pack failed on Vercel while installing a dependency that only exists inside the previous builder runtime — this version removes that dependency entirely.</p>
+      <p class="muted small">This ships as one static page plus its <code>assets/</code> folder (logo + hero image) and the <code>privacy-policy/</code>, <code>terms/</code> and <code>p/terms/</code> folders, so the Privacy Policy and Terms URLs resolve as real pages. Upload all of them together — the home page is not a lone file, because the images live in <code>assets/</code> and the legal pages live in their own folders. There is no server, no database, no runtime dependency, no lockfile, no <code>package.json</code> and no build command. That is why the old code-pack failed on Vercel while installing a dependency that only exists inside the previous builder runtime — this version removes that dependency entirely.</p>
       <ol class="small" style="line-height:1.9">
-        <li><b>GitHub:</b> create a repo named <code>clipsetuu</code>. Upload <code>index.html</code> and the whole <code>assets/</code> folder to the repo <b>root</b> (not inside another folder, and not as a ZIP).</li>
+        <li><b>GitHub:</b> create a repo named <code>clipsetuu</code>. Upload <code>index.html</code>, the whole <code>assets/</code> folder, and the <code>privacy-policy/</code>, <code>terms/</code> and <code>p/terms/</code> folders to the repo <b>root</b> (not inside another folder, and not as a ZIP). Each legal folder must contain its own <code>index.html</code>.</li>
         <li><b>Vercel:</b> Add New → Project → Import the <code>clipsetuu</code> repo. Framework Preset: <b>Other</b>. Build Command: leave empty. Output Directory: leave empty / <code>.</code></li>
         <li><b>Deploy.</b> Vercel serves <code>index.html</code> as a static site. You get a free <code>*.vercel.app</code> link.</li>
         <li><b>Custom domain (optional, paid):</b> a <code>.com</code> / <code>.in</code> domain is never free — buy one from a registrar, then add it in Vercel → Domains.</li>
@@ -527,6 +537,112 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
 </section>
 </main>
 
+<!-- PRIVACY POLICY VIEW (in-app) -->
+<div id="privacyView" hidden>
+  <div class="legal">
+    <a class="btn btn-sm back" href="/" data-legal-link="home">← Back to Home</a>
+    <p class="small muted" style="margin:0">ClipSetuu &nbsp;·&nbsp; <a href="/" data-legal-link="home">Home</a> &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; <a href="/terms" data-legal-link="terms">Terms of Service</a></p>
+    <h1>Privacy Policy</h1>
+    <p class="muted">Last updated: 1 November 2026. This policy describes exactly what this static version of ClipSetuu does with your information — and, just as importantly, what it does not do.</p>
+    <div class="url-box">
+      <p style="margin:0 0 6px"><b>Official pages — use exactly these links, with one slash:</b></p>
+      <p style="margin:0">Home: <code>https://clipsetuu-m4f.vercel.app/</code><br>Privacy Policy: <code>https://clipsetuu-m4f.vercel.app/privacy-policy</code><br>Terms of Service: <code>https://clipsetuu-m4f.vercel.app/terms</code></p>
+      <p class="tiny muted" style="margin:8px 0 0">Do not add an extra slash before “privacy-policy”. The older <code>/p/terms</code> address still shows the same Terms page as an alias, but the correct Terms address is <code>/terms</code>.</p>
+    </div>
+    <h2>1. The short version</h2>
+    <p>ClipSetuu in this build is a static web page. There is no server, no database and no account system behind it. Your uploaded videos are never uploaded anywhere — they stay in your own browser. The only things saved are small settings in your browser's local storage on your own device, which you can delete at any time. There is no tracking, no advertising profile, and no sale of personal data.</p>
+    <h2>2. No server upload — your videos stay in your browser</h2>
+    <ul>
+      <li>When you upload a video file, it is read only by your browser (using a local object URL) so it can be played, framed, captioned and exported on your device.</li>
+      <li>The file is never sent to ClipSetuu, to Vercel, or to any other server by this page. There is no upload endpoint in this build.</li>
+      <li>Export (MP4 / WebM) is also done in your browser. The exported file is created on your device and downloaded by you. Nothing is stored online by ClipSetuu.</li>
+      <li>Closing the tab or refreshing the page ends access to the uploaded file. You will need to upload it again if you want to work on it in a new session.</li>
+    </ul>
+    <h2>3. What is stored in your browser only (localStorage)</h2>
+    <p>Only the following are stored, in your browser's local storage on your device, and only if you use the relevant feature:</p>
+    <ul>
+      <li><b>Demo sign-in session:</b> the display name and email address you type into the demo login form. This is a demo only — see section 5. Signing out clears it.</li>
+      <li><b>My Saved Clips:</b> the title, caption, hashtags, cover hook, timing and cover image for clips you choose to save, plus the name shown on them. Saved clips are kept only in this browser.</li>
+      <li><b>Custom brand logo:</b> the logo image you upload with “Upload Brand Logo”, so it stays across reloads in this browser.</li>
+      <li><b>Language choice:</b> the language you pick in the header switcher.</li>
+    </ul>
+    <p>No passwords are stored. The demo email login does not check or store a password anywhere, and nothing you type there is sent to a server. To delete all of the above, use “Delete” on saved clips, “Sign out”, “Reset to default logo”, and clear site data / local storage for this site in your browser settings.</p>
+    <h2>4. No cookies for tracking, no analytics, no ads</h2>
+    <p>This build sets no tracking cookies, runs no analytics, shows no advertisements, and builds no profile about you. Your browser may still store ordinary technical data (such as cached files) as it does for any website, but ClipSetuu does not use it to track you across sites.</p>
+    <h2>5. Demo login — not real Google OAuth</h2>
+    <p>The “Continue with Google” button in this build is a <b>demo sign-in</b>. It does not connect to Google, does not use Google OAuth, does not access your Google account, Gmail, YouTube channel or any other account, and does not receive or store any Google token. The name and email you enter are stored only in your browser, as described above. Real Google sign-in, if it is added later, will be a separate Phase 2 change with its own consent screen, and this policy will be updated before it goes live.</p>
+    <h2>6. Demo publishing — nothing is posted</h2>
+    <p>The “1-Click Upload to YouTube Shorts” and “1-Click Upload to Instagram Reels” buttons open demo preparation modals. They do not post, upload or schedule anything to YouTube or Instagram, do not access any YouTube or Instagram account, and do not send your clip, title, caption, hashtags or cover anywhere. Live posting would need real YouTube / Meta OAuth connections and a backend — that is not in this build.</p>
+    <h2>7. Video links — preview only</h2>
+    <p>Pasting a video link (for example a YouTube link) is used only in your browser to show a title/thumbnail and a timing plan. A link alone cannot be clipped in a browser, and this page does not download the linked video. To cut real footage, upload the video file itself. Your pasted link is not sent to a ClipSetuu server, because there is none.</p>
+    <h2>8. Third-party services your browser may contact</h2>
+    <ul>
+      <li><b>Google Fonts:</b> this page loads its fonts from Google Fonts. Your browser therefore contacts Google's font servers when the page loads, and Google may log the usual technical details of that request (such as your IP address) under Google's own privacy policy.</li>
+      <li><b>YouTube thumbnails:</b> if you paste a YouTube link, your browser may fetch its thumbnail image from YouTube's image server (<code>i.ytimg.com</code>). That request goes directly from your browser to YouTube.</li>
+    </ul>
+    <p>No other third-party service is used by this build to collect your data.</p>
+    <h2>9. Your responsibility for videos you use</h2>
+    <p>Only upload and clip videos you own or have the right to use. You are responsible for respecting copyright, privacy and platform rules for any video, image, music or text you put into a clip, and for anything you later publish from an exported clip. See the <a href="/terms" data-legal-link="terms">Terms of Service</a>.</p>
+    <h2>10. Children</h2>
+    <p>This tool is not directed at children under 13, and we do not knowingly collect personal information from children. Because this build has no server, it does not collect personal information from anyone in the first place.</p>
+    <h2>11. Changes to this policy</h2>
+    <p>If this build changes — for example, if real login or real publishing is added — this policy will be updated on this page before that change goes live, with a new “Last updated” date. The version on this page is the version that applies to this deployment.</p>
+    <h2>12. Contact</h2>
+    <p>ClipSetuu in this build has no contact form and collects no messages. If you have a privacy question about a particular deployment, contact the operator of that deployment through the channel where you found the site, and mention the exact site address shown at the top of this page. To remove your local data right now, clear this site's data in your browser — no request to us is needed, because the data is only on your device.</p>
+    <p style="margin-top:26px"><a class="btn" href="/" data-legal-link="home">← Back to Home</a> &nbsp; <a class="btn btn-ghost" href="/terms" data-legal-link="terms">Read the Terms of Service →</a></p>
+  </div>
+</div>
+
+<!-- TERMS VIEW (in-app) -->
+<div id="termsView" hidden>
+  <div class="legal">
+    <a class="btn btn-sm back" href="/" data-legal-link="home">← Back to Home</a>
+    <p class="small muted" style="margin:0">ClipSetuu &nbsp;·&nbsp; <a href="/" data-legal-link="home">Home</a> &nbsp;·&nbsp; <a href="/privacy-policy" data-legal-link="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp; Terms of Service</p>
+    <h1>Terms of Service</h1>
+    <p class="muted">Last updated: 1 November 2026. Please read these terms before using ClipSetuu. By using the site, you agree to them.</p>
+    <div class="url-box">
+      <p style="margin:0 0 6px"><b>Official pages — use exactly these links, with one slash:</b></p>
+      <p style="margin:0">Home: <code>https://clipsetuu-m4f.vercel.app/</code><br>Privacy Policy: <code>https://clipsetuu-m4f.vercel.app/privacy-policy</code><br>Terms of Service: <code>https://clipsetuu-m4f.vercel.app/terms</code></p>
+      <p class="tiny muted" style="margin:8px 0 0">The older <code>/p/terms</code> address still shows this same Terms page as an alias, but the correct Terms address is <code>/terms</code>. Do not use a double slash.</p>
+    </div>
+    <h2>1. What ClipSetuu is</h2>
+    <p>ClipSetuu is a free, browser-based tool that helps you turn a long video into shorter vertical clips, with animated captions, a cover frame, a virality score, social copy and watermark-free MP4/WebM export. This build is a <b>static page</b>: there is no server, no database and no account backend. Everything — playback, clip timing, captions, thumbnails, copy and export — runs in your browser on your device.</p>
+    <h2>2. Free and unlimited — with honest limits</h2>
+    <ul>
+      <li>Use of this build is free, with no pricing page, no paywall, no credit counter and no subscription in this version.</li>
+      <li>“Unlimited” means there is no artificial clip counter in this build. It does not mean unlimited server processing, storage or publishing, because this build has no server at all.</li>
+      <li>Very long videos (up to 7 hours are accepted as input) still depend on your browser, device memory and speed. Long exports run in real time in your browser and may be slow or fail on low-memory devices. Export long clips in shorter parts if needed.</li>
+      <li>The service may be unavailable if the hosting deployment is down. No uptime guarantee is given for this free static deployment.</li>
+    </ul>
+    <h2>3. Demo features — do not rely on them as live services</h2>
+    <ul>
+      <li><b>Demo login:</b> “Continue with Google” and email sign-in are demos. They do not verify your identity, do not connect to Google, and do not prove ownership of any account. Saved clips are stored only in your browser.</li>
+      <li><b>Demo publishing:</b> the YouTube Shorts and Instagram Reels buttons prepare a publish payload in a demo modal. They do not post, upload or schedule anything, and they do not connect to any YouTube or Instagram account. Live posting needs real OAuth and a backend (Phase 2).</li>
+      <li><b>Demo detection and scoring:</b> moment detection, transcription, captions and virality scores in this build are generated client-side from the title and timings you provide. They are suggestions to help you edit — not real AI analysis of the video's audio or content, and not a promise that a clip will perform well.</li>
+    </ul>
+    <h2>4. Your videos, your responsibility</h2>
+    <ul>
+      <li>You keep all rights in videos and other content you upload. Because files stay in your browser and are never uploaded to ClipSetuu, you grant ClipSetuu no licence in them.</li>
+      <li>Only upload, clip and publish videos, images, music and text that you own or have permission to use. Do not upload content that infringes copyright or trademark, invades privacy, or breaks the law.</li>
+      <li>You are solely responsible for any clip you create, export or publish elsewhere, including for copyright claims, takedowns or platform penalties. If you are unsure whether you may use a video, do not use it.</li>
+      <li>Respect the terms of the platform a video came from. A YouTube, Twitch or podcast link alone does not give you the right to download, re-upload or monetise someone else's video.</li>
+    </ul>
+    <h2>5. Links give a preview only</h2>
+    <p>Pasting a link does not download or clip the linked video. It only helps build a title, thumbnail and timing plan in your browser. To cut real footage, upload the video file itself (for example, download your own video from YouTube Studio first, then upload it here).</p>
+    <h2>6. Acceptable use</h2>
+    <p>You agree not to use ClipSetuu to create misleading, deceptive or harmful content, to impersonate another person or channel, to spam, or to try to break, overload or reverse-engineer the page or its hosting. You must not present demo features as live Google, YouTube or Instagram services to other people.</p>
+    <h2>7. No guarantee of virality, ranking or earnings</h2>
+    <p>Nothing on this site guarantees views, followers, search ranking, monetisation, earnings or any other result. Virality scores, hooks, titles and hashtags are editing suggestions only. Your results depend on your content, your audience and the platforms you publish to.</p>
+    <h2>8. No warranties; limited liability</h2>
+    <p>ClipSetuu is provided “as is” and “as available”, without warranties of any kind, to the fullest extent permitted by law. The operator is not liable for lost videos, failed exports, lost data in your browser, or for anything that happens after you publish a clip elsewhere, except where the law does not allow such a limit. Your only remedy for dissatisfaction with this free tool is to stop using it.</p>
+    <h2>9. Privacy</h2>
+    <p>How your information is (and is not) handled is explained in the <a href="/privacy-policy" data-legal-link="privacy-policy">Privacy Policy</a>, which forms part of these terms. In short: no server upload, browser-only storage, no tracking cookies, demo login and demo publishing only.</p>
+    <h2>10. Changes</h2>
+    <p>These terms may be updated when the build changes — for example, if real login or publishing is added. The updated version will be posted on this page with a new date, and continued use after an update means you accept the updated terms.</p>
+    <p style="margin-top:26px"><a class="btn" href="/" data-legal-link="home">← Back to Home</a> &nbsp; <a class="btn btn-ghost" href="/privacy-policy" data-legal-link="privacy-policy">Read the Privacy Policy →</a></p>
+  </div>
+</div>
+
 <footer>
   <div class="wrap foot">
     <div>
@@ -537,10 +653,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;background:#07080C}
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div><b style="display:block;margin-bottom:8px">Product</b><p class="small muted" style="margin:0;line-height:2"><a href="#console">AI Clip Generator</a><br><a href="#studio">Studio</a><br><a href="#deploy">Deploy on Vercel</a></p></div>
       <div><b style="display:block;margin-bottom:8px">Resources</b><p class="small muted" style="margin:0;line-height:2"><a href="#how">Help Centre</a><br><a href="#faq">FAQ</a><br><a href="#studio">Demo Clips</a></p></div>
+      <div><b style="display:block;margin-bottom:8px">Legal</b><p class="small muted" style="margin:0;line-height:2"><a href="/" data-legal-link="home">Home</a><br><a href="/privacy-policy" data-legal-link="privacy-policy">Privacy Policy</a><br><a href="/terms" data-legal-link="terms">Terms of Service</a></p></div>
       <div><button class="btn btn-sm" id="footLogoBtn">Upload Brand Logo</button><br><button class="btn btn-sm btn-ghost" id="resetLogoBtn" style="margin-top:8px">Reset to default logo</button></div>
     </div>
   </div>
-  <div class="wrap"><p class="tiny muted" style="margin-top:22px">© 2026 ClipSetuu. Demo login and demo publishing are labelled as such on this page. Your videos and saved clips stay in your browser.</p></div>
+  <div class="wrap"><p class="tiny muted" style="margin-top:22px">© 2026 ClipSetuu. Demo login and demo publishing are labelled as such on this page. Your videos and saved clips stay in your browser.</p>
+  <p class="tiny muted" style="margin-top:8px;word-break:break-all">Google OAuth links — use exactly these, with one slash: Home: https://clipsetuu-m4f.vercel.app/ &nbsp;·&nbsp; Privacy Policy: https://clipsetuu-m4f.vercel.app/privacy-policy &nbsp;·&nbsp; Terms of Service: https://clipsetuu-m4f.vercel.app/terms</p></div>
 </footer>
 
 <!-- LOGIN MODAL -->
@@ -676,6 +794,40 @@ $("googleGo").addEventListener("click",function(){doLogin($("gName").value.trim(
 $("emailGo").addEventListener("click",function(){doLogin($("eEmail").value.trim().split("@")[0],$("eEmail").value.trim())});
 renderAuth();
 
+/* ---------- legal pages: Home / Privacy Policy / Terms (in-app views + clean URLs) ---------- */
+function showView(name){
+  var home=$("top"),pv=$("privacyView"),tv=$("termsView");if(!home||!pv||!tv)return;
+  if(name==="privacy"){home.hidden=true;pv.hidden=false;tv.hidden=true;document.title="Privacy Policy — ClipSetuu | Free AI Video Clip Maker"}
+  else if(name==="terms"){home.hidden=true;pv.hidden=true;tv.hidden=false;document.title="Terms of Service — ClipSetuu | Free AI Video Clip Maker"}
+  else{home.hidden=false;pv.hidden=true;tv.hidden=true;document.title="ClipSetuu — Free AI Video Clip Maker | Long Video to Viral Shorts, Hinglish Captions, 1080p, No Watermark"}
+  window.scrollTo(0,0)}
+function currentRoute(){
+  var h=(location.hash||"").replace(/^#\/?/,"").replace(/\/$/,"");
+  if(h==="privacy-policy"||h==="privacy")return "privacy";
+  if(h==="terms"||h==="p/terms")return "terms";
+  var p=(location.pathname||"").replace(/\/+$/,"");
+  if(p.slice(-15)==="/privacy-policy")return "privacy";
+  if(p.slice(-6)==="/terms"||p.slice(-8)==="/p/terms")return "terms";
+  return "home"}
+function routeFromLocation(){
+  var h=(location.hash||"").replace(/^#\/?/,"").replace(/\/$/,"");
+  var legal=currentRoute();
+  if(legal!=="home"){showView(legal);return}
+  if(h==="console"||h==="studio"||h==="how"||h==="faq"||h==="deploy"){
+    if($("privacyView")&&!$("privacyView").hidden||$("termsView")&&!$("termsView").hidden){showView("home");var t=document.getElementById(h);if(t)setTimeout(function(){t.scrollIntoView()},30)}
+    return}
+  if(h==="home"||h==="top"||h==="")showView("home")}
+document.addEventListener("click",function(e){
+  var a=e.target.closest?e.target.closest("[data-legal-link]"):null;if(!a)return;e.preventDefault();
+  var dest=a.getAttribute("data-legal-link");var view=dest==="privacy-policy"?"privacy":dest==="terms"?"terms":"home";
+  showView(view);
+  try{history.pushState(null,"",view==="home"?"#top":view==="privacy"?"#/privacy-policy":"#/terms")}catch(err){}
+  if(view==="home"&&a.getAttribute("href")==="#top"){window.scrollTo(0,0)}});
+document.querySelector(".brand").addEventListener("click",function(e){if(($("privacyView")&&!$("privacyView").hidden)||($("termsView")&&!$("termsView").hidden)){e.preventDefault();showView("home");window.scrollTo(0,0)}});
+window.addEventListener("hashchange",routeFromLocation);
+window.addEventListener("popstate",routeFromLocation);
+routeFromLocation();
+
 /* ---------- caption styles ---------- */
 var STYLES=[
  {id:"hormozi",name:"Hormozi Bold",cls:"s-hormozi",prev:'<span style="color:#FACC15;background:#15803D;padding:0 3px">BHAI YE</span> TRICK DEKHO'},
@@ -720,17 +872,21 @@ dz.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")$("fil
 dz.addEventListener("drop",function(e){var f=e.dataTransfer.files[0];if(f)handleFile(f)});
 $("fileInput").addEventListener("change",function(){if(this.files[0])handleFile(this.files[0])});
 function setSourcePreview(title,meta,thumb){$("srcPreview").hidden=false;$("srcTitle").textContent=title;$("srcMeta").textContent=meta;if(thumb)$("srcThumb").src=thumb}
-function handleFile(f){if(!f)return;if(state.fileURL)URL.revokeObjectURL(state.fileURL);state.fileURL=URL.createObjectURL(f);state.source={kind:"file",name:f.name};
+function handleFile(f){if(!f)return;if(state.fileURL&&state.source&&state.source.kind==="file")URL.revokeObjectURL(state.fileURL);state.fileURL=URL.createObjectURL(f);state.source={kind:"file",name:f.name};state.cur=0;state.selectedFrame=0;
+  $("mainVideo").src=state.fileURL;$("mainVideo").hidden=false;$("demoStage").hidden=true;seekMainTo(0);
+  $("mainVideo").onloadedmetadata=function(){if(isFinite(this.duration)&&this.duration>0&&(!state.duration||Math.abs(state.duration-this.duration)>0.5)){state.duration=this.duration;$("durBadge").textContent=state.duration>25200?("Duration: "+fmt(state.duration)+" — over 7 hours"):("Duration: "+fmt(state.duration)+" ✓ Supported");genClips(true);seekMainTo(0)}};
   var mv=$("metaVideo");mv.src=state.fileURL;mv.onloadedmetadata=function(){state.duration=mv.duration;showDuration(f.name+" · "+(f.size/1048576).toFixed(1)+" MB");buildFramesFromVideo()};
   mv.onerror=function(){showDuration(f.name+" · duration could not be read")};
   function showDuration(meta){setSourcePreview(f.name,meta,HERO);if(state.duration){if(state.duration>25200){$("durBadge").textContent="Duration: "+fmt(state.duration)+" — over 7 hours";toast("This file is over 7 hours. Trim it to 7 hours or less before generating.")}else{$("durBadge").textContent="Duration: "+fmt(state.duration)+" ✓ Supported"}}
     else{$("durBadge").textContent="Duration: — · up to 7h supported"}
-    $("srcTitleEdit").value=f.name.replace(/\.[a-z0-9]+$/i,"").replace(/[-_]+/g," ");generateClips()}
-  $("mainVideo").src=state.fileURL;$("footageNote").textContent="Real footage loaded — this is your uploaded file, playing in your browser."}
+    $("srcTitleEdit").value=f.name.replace(/\.[a-z0-9]+$/i,"").replace(/[-_]+/g," ");
+    genClips(true);state.cur=0;renderClipList();renderStudio();seekMainTo(0);
+    if(state.duration&&state.duration<=clipLenSec()){toast("Uploaded video loaded — Clip #1 is the whole video, from 00:00:00 to "+fmt(state.duration)+".")}else{toast("Uploaded video loaded — Clip #1 starts at 00:00:00 of your video.")}}
+  $("footageNote").textContent="Real footage loaded — this is your uploaded file, playing in your browser from 00:00:00."}
 function analyseURL(){var u=$("urlInput").value.trim();if(!u){toast("Paste a video URL first.");return}
   var m=u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
   if(m){var id=m[1];state.source={kind:"youtube",id:id,url:u};var th="https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";var img=new Image();img.onload=function(){setSourcePreview("YouTube video · "+id,"YouTube link detected — title & duration are not readable from a link in a browser. Edit the title below, or upload the file for real footage.",th)};img.onerror=function(){setSourcePreview("YouTube video · "+id,"YouTube link detected — thumbnail unavailable. Edit the title below.",HERO)};img.src=th;$("durBadge").textContent="Duration: not read from link · 7h limit applies";$("srcTitleEdit").value="My YouTube video "+id}
-  else if(/\.mp4(\?|$)/i.test(u)){state.source={kind:"mp4",url:u};state.fileURL=u;$("metaVideo").src=u;$("metaVideo").onloadedmetadata=function(){state.duration=$("metaVideo").duration;$("durBadge").textContent="Duration: "+fmt(state.duration)+" ✓ Supported"};$("metaVideo").onerror=function(){$("durBadge").textContent="Duration: — · MP4 link"};setSourcePreview("Public MP4 link",u,HERO);$("mainVideo").src=u;$("srcTitleEdit").value="My MP4 video";$("footageNote").textContent="MP4 link loaded — playback depends on the host allowing it."}
+  else if(/\.mp4(\?|$)/i.test(u)){state.source={kind:"mp4",url:u};state.fileURL=u;$("metaVideo").src=u;$("metaVideo").onloadedmetadata=function(){state.duration=$("metaVideo").duration;$("durBadge").textContent="Duration: "+fmt(state.duration)+" ✓ Supported";genClips(true);seekMainTo(0)};$("metaVideo").onerror=function(){$("durBadge").textContent="Duration: — · MP4 link"};setSourcePreview("Public MP4 link",u,HERO);$("mainVideo").src=u;$("srcTitleEdit").value="My MP4 video";$("footageNote").textContent="MP4 link loaded — playback depends on the host allowing it."}
   else{state.source={kind:"link",url:u};setSourcePreview("Video link","Link detected ("+u.slice(0,48)+"…). Title and duration are not readable from the link — edit the title below.",HERO);$("durBadge").textContent="Duration: — · up to 7h supported";$("srcTitleEdit").value="My long video"}
   toast("Link analysed — generate clips to build the Studio plan.")}
 $("analyseBtn").addEventListener("click",analyseURL);
@@ -747,25 +903,43 @@ var WHY=["Strong hook in the first 3 seconds, one clear idea, and a payoff that 
 function baseTitle(){var t=$("srcTitleEdit").value.trim()||"My long video";return t}
 function clipLenSec(){if(state.len==="auto")return 52;return parseInt(state.len,10)===30?24:parseInt(state.len,10)===60?45:parseInt(state.len,10)===90?75:120}
 function genClips(silent){var n,total=state.duration||3600;var len=clipLenSec();
-  if(state.count==="auto")n=Math.min(10,Math.max(3,Math.floor(total/900)));else n=parseInt(state.count,10);
+  var isUploadedFile=!!(state.fileURL&&state.source&&state.source.kind==="file");
+  var isRealFootage=isUploadedFile||!!(state.fileURL&&state.source&&state.source.kind==="mp4"&&state.duration);
+  if(isRealFootage&&total<=len){n=1}
+  else if(state.count==="auto"){n=Math.min(10,Math.max(3,Math.floor(total/900)))}else{n=parseInt(state.count,10)}
+  if(isRealFootage&&total>len&&n>1){var maxN=Math.max(1,Math.floor(total/len));if(n>maxN&&total<900)n=Math.min(n,Math.max(1,Math.ceil(total/len)))}
   var hooks=HOOKS[state.clang],lines=LINES[state.clang];
   state.clips=[];var step=Math.max(len+40,Math.floor(total/Math.max(n,1)));
-  for(var i=0;i<n;i++){var start=Math.min(total-len-1,130+i*step);if(start<0)start=i*70;
+  for(var i=0;i<n;i++){var start,end;
+    if(isRealFootage){
+      if(n===1){start=0}
+      else if(total>len){start=Math.round(i*((total-len)/Math.max(1,n-1)))}
+      else{start=0}
+      if(start<0)start=0;if(start>total-1)start=Math.max(0,total-1);
+      end=Math.min(total,start+len);if(end<=start)end=total;
+    }else{start=Math.min(total-len-1,130+i*step);if(start<0)start=i*70;end=start+len}
     var hook=hooks[(i+state.regen)%hooks.length];
-    state.clips.push({n:i+1,start:start,end:start+len,score:82+((i*7+state.regen*3)%17),why:WHY[i%WHY.length],hook:hook,title:hook+" — "+baseTitle(),lines:lines.map(function(l){return l.slice()}),tags:baseTags()})}
-  state.cur=0;renderClipList();renderStudio();renderCopy();buildFrames();if(!silent)toast(n+" clips generated — Studio ready below.")}
+    state.clips.push({n:i+1,start:start,end:end,score:82+((i*7+state.regen*3)%17),why:WHY[i%WHY.length],hook:hook,title:hook+" — "+baseTitle(),lines:lines.map(function(l){return l.slice()}),tags:baseTags(),demo:!isRealFootage})}
+  state.cur=0;state.demoTiming=!isRealFootage;renderClipList();renderStudio();renderCopy();buildFrames();if(!silent)toast(n+" clips generated — Studio ready below.")}
 function baseTags(){var t=["#shorts","#reelsindia","#viralvideos","#podcastclips"];if(state.clang==="hinglish")t.push("#hinglish","#desicreator");if(state.clang==="hindi")t.push("#hindi","#hindishorts");t.push("#clipsetuu");return t}
 function regenerateClipsFromTitle(){if(!state.clips.length)return;var hooks=HOOKS[state.clang],lines=LINES[state.clang];
   state.clips.forEach(function(c,i){c.hook=hooks[(i+state.regen)%hooks.length];c.title=c.hook+" — "+baseTitle();c.lines=lines.map(function(l){return l.slice()})});
   renderStudio();renderCopy();buildFrames()}
 function renderClipList(){$("clipList").innerHTML=state.clips.map(function(c,i){return '<button class="pill" data-clip="'+i+'" aria-pressed="'+(i===state.cur)+'">Clip #'+c.n+' · '+fmt(c.start)+' · 🔥 '+c.score+'</button>'}).join("");
   $("clipList").querySelectorAll("[data-clip]").forEach(function(b){b.addEventListener("click",function(){state.cur=parseInt(b.getAttribute("data-clip"),10);renderClipList();renderStudio();renderCopy();buildFrames()})})}
-function curClip(){return state.clips[state.cur]||{n:1,start:130,end:182,score:96,why:WHY[0],hook:state.coverHook,title:baseTitle(),lines:LINES[state.clang],tags:baseTags()}}
-function renderStudio(){var c=curClip();$("scoreBadge").textContent="🔥 "+c.score+"/100 Viral Potential";$("timeBadge").textContent=fmt(c.start)+" – "+fmt(c.end);$("whyLine").textContent=c.why;
-  $("kvClip").textContent="Clip #"+c.n;$("kvTime").textContent=fmt(c.start)+" – "+fmt(c.end);
+function curClip(){return state.clips[state.cur]||{n:1,start:130,end:182,score:96,why:WHY[0],hook:state.coverHook,title:baseTitle(),lines:LINES[state.clang],tags:baseTags(),demo:true}}
+function seekMainTo(t){var v=$("mainVideo");function apply(){try{v.currentTime=t}catch(e){}try{v.pause()}catch(e){}}
+  if(v.readyState>=1){apply()}else{var h=function(){apply();v.removeEventListener("loadedmetadata",h)};v.addEventListener("loadedmetadata",h)}}
+function renderStudio(){var c=curClip();var isDemo=!state.fileURL||c.demo===true;
+  $("scoreBadge").textContent="🔥 "+c.score+"/100 Viral Potential";$("timeBadge").textContent=(isDemo?"Demo: ":"")+fmt(c.start)+" – "+fmt(c.end);$("whyLine").textContent=c.why;
+  $("kvClip").textContent="Clip #"+c.n;$("kvTime").textContent=(isDemo?"Demo: ":"")+fmt(c.start)+" – "+fmt(c.end);
+  var note=$("clipStartNote");
+  if(state.fileURL&&state.source&&state.source.kind==="file"){note.textContent="✓ Your uploaded video — Clip #"+c.n+" starts at "+fmt(c.start)+"."+(c.n===1?"":" Clip #1 starts at 00:00:00.")+((state.duration&&state.duration<=clipLenSec()&&c.n===1)?" This short video is used whole, from start to end.":"");$("footageNote").textContent="Real footage loaded — this is your uploaded file, playing in your browser from "+fmt(c.start)+"."}
+  else if(state.fileURL){note.textContent="Your video link / file — Clip #"+c.n+" starts at "+fmt(c.start)+".";$("footageNote").textContent="Footage loaded in your browser — playing from "+fmt(c.start)+"."}
+  else{note.textContent="Demo timing — upload a video file to get clips from 00:00:00 of your own video.";$("footageNote").textContent="Demo preview — upload a video file above to play your real footage here."}
   state.coverHook=c.hook;$("kvHook").textContent=state.coverHook;$("coverHook").textContent=c.hook;$("hookInput").value=c.hook;if(STYLES[state.style].id==="hook")$("hookBar").textContent=c.hook;
   var hasFile=!!state.fileURL;$("mainVideo").hidden=!hasFile;$("demoStage").hidden=hasFile;
-  if(hasFile){var v=$("mainVideo");try{v.currentTime=Math.min(c.start,Math.max(0,(v.duration||c.end)-1))}catch(e){}v.pause();$("splitVideo").src=state.fileURL}
+  if(hasFile){seekMainTo(c.start);$("splitVideo").src=state.fileURL}
   $("longWarn").hidden=(c.end-c.start)<=60;$("kvCover").textContent="Frame "+(state.selectedFrame+1)+(state.selectedFrame===0?" — AI Best":"");
   renderCaption(true);applySplit();startCapTimer()}
 function renderCaption(force){var c=curClip();var lines=c.lines&&c.lines.length?c.lines:[["bhai","ye","trick","dekho"]];
